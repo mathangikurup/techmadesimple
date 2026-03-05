@@ -5,12 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Technology Made Simple</title>
 
-  <!--
-    FONTS: We're loading two fonts from Google Fonts.
-    - "Questrial" is a thin, clean sans-serif with a slightly retro feel
-    - "Courier Prime" is a monospace font (like old typewriters) used for small accent labels
-    You can swap these out at fonts.google.com and paste a new link here.
-  -->
   <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/>
 
   <style>
@@ -24,9 +18,7 @@
     }
 
     /* === HEADER ===
-       A simple light header with a thin top border stripe for color.
-       The stripe is made using "border-top" — a quick way to add
-       a colored accent line without extra HTML.
+       The stripe is made using "border-top" — a quick way to add a colored accent line without extra HTML.
     */
     header {
       background: #faf8f3;
@@ -62,7 +54,7 @@
 
     /* === NAV ===
        "position: sticky; top: 0" makes the nav bar stick to the top
-       of the screen as you scroll down — very useful for long pages.
+       of the screen as you scroll down.
        "z-index: 10" keeps it on top of other elements while scrolling.
     */
     nav {
@@ -92,10 +84,7 @@
       color: #6a8caf;
     }
 
-    /* === DIVIDER LINE
-       A simple horizontal rule styled to look like a typewriter underline.
-       Used between the nav and sections to add structure.
-    */
+    /* === DIVIDER LINE    */
     .divider {
       border: none;
       border-top: 1px dashed #ccc;
@@ -121,7 +110,7 @@
     }
     section p + p { margin-top: 10px; }
 
-    /* === STEPS (How It Works) ===
+    /* === STEPS
        "display: grid" with "grid-template-columns: repeat(3, 1fr)"
        means: make 3 equal columns. "1fr" = 1 fraction of available space.
     */
