@@ -1,169 +1,513 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technology Made Simple</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Technology Made Simple</title>
 
+  <!--
+    FONTS: We're loading two fonts from Google Fonts.
+    - "Questrial" is a thin, clean sans-serif with a slightly retro feel
+    - "Courier Prime" is a monospace font (like old typewriters) used for small accent labels
+    You can swap these out at fonts.google.com and paste a new link here.
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <style>
+
+    /* === BASE === */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Questrial', sans-serif;
+      background: #f0ede6;  /* warm off-white, like old paper */
+      color: #1a1a1a;
+    }
+
+    /* === HEADER ===
+       A simple light header with a thin top border stripe for color.
+       The stripe is made using "border-top" — a quick way to add
+       a colored accent line without extra HTML.
+    */
+    header {
+      background: #faf8f3;
+      border-top: 4px solid #6a8caf;  /* dusty blue stripe at the very top */
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      padding: 44px 20px 38px;
+    }
+    header .eyebrow {
+      /* "eyebrow" = small label above the main title, common design pattern */
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #6a8caf;
+      margin-bottom: 12px;
+    }
+    header h1 {
+      font-size: 2.6rem;
+      font-weight: 400;        /* Questrial only has one weight, so this is naturally thin */
+      color: #1a1a1a;
+      letter-spacing: 0.01em;
+    }
+    header h1 span {
+      color: #6a8caf;          /* the accent word in dusty blue */
+    }
+    header .subline {
+      margin-top: 10px;
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.82rem;
+      color: #999;
+    }
+
+    /* === NAV ===
+       "position: sticky; top: 0" makes the nav bar stick to the top
+       of the screen as you scroll down — very useful for long pages.
+       "z-index: 10" keeps it on top of other elements while scrolling.
+    */
+    nav {
+      background: #faf8f3;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #555;
+      text-decoration: none;
+      margin: 0 8px;
+      padding: 6px 14px;
+      border: 1px solid transparent;
+      border-radius: 3px;        
+      transition: all 0.15s;
+    }
+    nav a:hover {
+      border-color: #6a8caf;
+      color: #6a8caf;
+    }
+
+    /* === DIVIDER LINE
+       A simple horizontal rule styled to look like a typewriter underline.
+       Used between the nav and sections to add structure.
+    */
+    .divider {
+      border: none;
+      border-top: 1px dashed #ccc;
+      margin: 0;
+    }
+
+    /* === SECTIONS === */
+    section {
+      max-width: 960px;
+      margin: 56px auto;
+      padding: 0 24px;
+    }
+    section h2 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+    }
+    section p {
+      font-size: 0.97rem;
+      color: #555;
+      line-height: 1.8;
+    }
+    section p + p { margin-top: 10px; }
+
+    /* === STEPS (How It Works) ===
+       "display: grid" with "grid-template-columns: repeat(3, 1fr)"
+       means: make 3 equal columns. "1fr" = 1 fraction of available space.
+    */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .step {
+      background: #faf8f3;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 20px;
+    }
+    .step h3 {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 7px;
+      color: #333;
+    }
+    .step p { font-size: 0.87rem; color: #777; }
+
+    /* === AGE TAGS ===
+       Small colored labels. Each section gets its own muted retro color.
+       These use "inline-block" so they sit on their own line but
+       only take up as much width as their text needs.
+    */
+    .age-tag {
+      display: inline-block;
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+    .kids  { background: #fef3c7; color: #92400e; }
+    .teens { background: #dbeafe; color: #1e3a5f; }
+    .snr   { background: #ede9fe; color: #4c1d95; }
+
+    /* === CARD GRID ===
+       "auto-fill" + "minmax(280px, 1fr)" means:
+       fit as many columns as possible, but each must be at least 280px wide.
+       This makes the grid automatically go from 3 columns → 2 → 1 as the
+       screen gets smaller, without needing extra media queries.
+    */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    /* === CARD === */
+    .card {
+      background: #faf8f3;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: hidden;          /* hides the iframe corners outside the border-radius */
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 4px 4px 0px #6a8caf;  /* hard offset shadow — very 2000s web feel */
+    }
+    .card iframe {
+      width: 100%;
+      height: 175px;
+      border: none;
+      display: block;
+      background: #c8d8e8;       /* placeholder color while video loads */
+    }
+    .card-body {
+      padding: 16px;
+    }
+    .card-body h3 {
+      font-size: 0.97rem;
+      font-weight: 400;
+      margin-bottom: 6px;
+      color: #1a1a1a;
+    }
+    .card-body p {
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .card-body .links {
+      display: flex;
+      gap: 8px;
+    }
+    .card-body a {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      padding: 7px;
+      border-radius: 3px;
+      transition: background 0.15s;
+    }
+    .card-body a.primary {
+      background: #6a8caf;
+      color: #fff;
+    }
+    .card-body a.primary:hover { background: #567899; }
+    .card-body a.outline {
+      border: 1px solid #bbb;
+      color: #555;
+    }
+    .card-body a.outline:hover { background: #ebe8e0; }
+
+    /* === TIP BOX ===
+       Uses "display: flex" to place the emoji and text side by side.
+       "align-items: flex-start" keeps the emoji at the top rather than
+       centering it vertically with the text.
+    */
+    .tip {
+      background: #faf8f3;
+      border: 1px solid #ddd;
+      border-left: 3px solid #6a8caf;   /* colored left border — a classic callout style */
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin-top: 22px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .tip .icon { font-size: 1.3rem; flex-shrink: 0; }   /* flex-shrink: 0 stops the icon from squishing */
+    .tip h4 {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #333;
+    }
+    .tip p { font-size: 0.86rem; color: #666; line-height: 1.65; }
+
+    /* === FOOTER === */
+    footer {
+      background: #faf8f3;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      padding: 26px;
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.78rem;
+      color: #999;
+      letter-spacing: 0.05em;
+      margin-top: 70px;
+    }
+
+    /* === MOBILE ===
+       "@media (max-width: 640px)" means: apply these styles only
+       when the screen is 640px wide or less (phones).
+    */
+    @media (max-width: 640px) {
+      header h1 { font-size: 1.9rem; }
+      .steps { grid-template-columns: 1fr; }  /* stack steps vertically on mobile */
+      nav a { font-size: 0.72rem; margin: 3px; padding: 5px 10px; }
+    }
+
+  </style>
+</head>
 <body>
 
+<!-- HEADER -->
 <header>
-    <h1>Technology Made Simple</h1>
+  <div class="eyebrow">Media &amp; Technology Club</div>
+  <h1>Technology <span>Made Simple</span></h1>
+  <div class="subline">friendly guides for every age — learn at your own pace.</div>
 </header>
 
+<!-- NAV -->
 <nav>
-    <a href="#about">About</a>
-    <a href="#kids">Kids</a>
-    <a href="#teens">Teens & Adults</a>
-    <a href="#seniors">Seniors</a>
+  <a href="#about">About</a>
+  <a href="#how">How It Works</a>
+  <a href="#kids">Kids</a>
+  <a href="#teens">Teens &amp; Adults</a>
+  <a href="#seniors">Seniors</a>
 </nav>
+
+<!-- hr = horizontal rule, here styled as a dashed divider -->
+<hr class="divider">
 
 <!-- ABOUT -->
 <section id="about">
-    <h2>About This Project</h2>
-
-    <p>
-        Technology helps people stay connected, informed, and independent in today’s digital world.
-        As new devices and platforms continue to evolve, it can be difficult to keep up with the
-        skills needed to use technology safely and confidently.
-    </p>
-
-    <p>
-        This project was created by students in the Media & Technology Club to provide simple,
-        easy-to-follow technology guides designed for learners of all ages.
-    </p>
-
-    <p>
-        Our goal is to build confidence with technology and strengthen connections across generations.
-    </p>
+  <h2>About This Project</h2>
+  <p>Technology helps people stay connected, informed, and independent in today's digital world. As new devices and platforms continue to evolve, it can be difficult to keep up with the skills needed to use them safely and confidently.</p>
+  <p>This project was created by students in the <strong>Media &amp; Technology Club</strong> to provide simple, easy-to-follow guides for learners of all ages — from young kids exploring the internet for the first time to seniors making their first video call.</p>
+  <p>Our goal is to build confidence with technology and strengthen connections across generations.</p>
 </section>
 
-<!-- HOW TO USE -->
+<!-- HOW IT WORKS -->
 <section id="how">
-    <h2>How to Use This Website</h2>
-
-    <p>
-        Guides are organized by age group and everyday technology needs.
-        Each topic includes a short video tutorial and a written guide.
-        You may explore topics in any order depending on your needs.
-    </p>
+  <h2>How It Works</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>01 — Find Your Group</h3>
+      <p>Jump to the section that's right for you — Kids, Teens &amp; Adults, or Seniors.</p>
+    </div>
+    <div class="step">
+      <h3>02 — Watch the Video</h3>
+      <p>Each topic has a short, easy-to-follow video. No prior knowledge needed.</p>
+    </div>
+    <div class="step">
+      <h3>03 — Read the Guide</h3>
+      <p>Prefer reading? Every topic also has a written step-by-step guide.</p>
+    </div>
+  </div>
 </section>
 
 <!-- KIDS -->
 <section id="kids">
-    <h2>For Kids: Safe Online Habits</h2>
+  <span class="age-tag kids"> Kids Ages 6–12</span>
+  <h2>Safe &amp; Kind Online Habits</h2>
+  <p>Fun, easy lessons to help kids explore the internet safely and treat others with kindness.</p>
 
-    <div class="card-container">
+  <div class="cards">
 
-        <div class="topic-card">
-            <h3>Staying Safe Online</h3>
-            <p>Learn how to protect personal information and recognize unsafe websites.</p>
-
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
-
-            <div class="card-links">
-                <a href="#">Watch Video</a>
-                <a href="#">Read Guide</a>
-            </div>
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+      <div class="card-body">
+        <h3>Staying Safe Online</h3>
+        <p>Protect personal information, create strong passwords, and recognize unsafe websites.</p>
+        <div class="links">
+          <a href="#" class="primary">▶ Watch</a>
+          <a href="#" class="outline">📖 Read</a>
         </div>
-
-        <div class="topic-card">
-            <h3>Being Kind Online</h3>
-            <p>Understanding digital citizenship and respectful communication.</p>
-
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
-
-            <div class="card-links">
-                <a href="#">Watch Video</a>
-                <a href="#">Read Guide</a>
-            </div>
-        </div>
-
+      </div>
     </div>
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+      <div class="card-body">
+        <h3>Being Kind Online</h3>
+        <p>Understanding digital citizenship and what to do when someone is unkind online.</p>
+        <div class="links">
+          <a href="#" class="primary">▶ Watch</a>
+          <a href="#" class="outline">📖 Read</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+      <div class="card-body">
+        <h3>Spotting Misinformation</h3>
+        <p>How to tell if something you read online is true before believing or sharing it.</p>
+        <div class="links">
+          <a href="#" class="primary">▶ Watch</a>
+          <a href="#" class="outline">📖 Read</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tip">
+    <div class="icon">💡</div>
+    <div>
+      <h4>Parent &amp; Teacher Tip</h4>
+      <p>Try watching a video alongside your child and discussing it together — it makes the lessons stick!</p>
+    </div>
+  </div>
 </section>
 
-<!-- TEENS -->
+<!-- TEENS & ADULTS -->
 <section id="teens">
-    <h2>For Teens & Adults: Everyday Technology</h2>
+  <span class="age-tag teens">Teens &amp; Adults</span>
+  <h2>Work Smarter Online</h2>
+  <p>Master the digital tools used every day in school, work, and life.</p>
 
-    <div class="card-container">
+  <div class="cards">
 
-        <div class="topic-card">
-            <h3>Managing Email Efficiently</h3>
-            <p>Organize inboxes, avoid spam, and communicate professionally.</p>
-
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
-
-            <div class="card-links">
-                <a href="#">Watch Video</a>
-                <a href="#">Read Guide</a>
-            </div>
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+      <div class="card-body">
+        <h3>Managing Email Efficiently</h3>
+        <p>Organize your inbox, filter spam, and write professional emails that get responses.</p>
+        <div class="links">
+          <a href="#" class="primary">▶ Watch</a>
+          <a href="#" class="outline">📖 Read</a>
         </div>
-
-        <div class="topic-card">
-            <h3>Video Meetings (Zoom & Google Meet)</h3>
-            <p>Join meetings, manage settings, and communicate clearly online.</p>
-
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
-
-            <div class="card-links">
-                <a href="#">Watch Video</a>
-                <a href="#">Read Guide</a>
-            </div>
-        </div>
-
+      </div>
     </div>
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+      <div class="card-body">
+        <h3>Video Meetings (Zoom &amp; Meet)</h3>
+        <p>Join and host meetings, share your screen, and come across professionally online.</p>
+        <div class="links">
+          <a href="#" class="primary">▶ Watch</a>
+          <a href="#" class="outline">📖 Read</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+      <div class="card-body">
+        <h3>Cloud Storage &amp; File Sharing</h3>
+        <p>Save files to Google Drive or iCloud and share documents with others easily.</p>
+        <div class="links">
+          <a href="#" class="primary">▶ Watch</a>
+          <a href="#" class="outline">📖 Read</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- SENIORS -->
 <section id="seniors">
-    <h2>For Seniors: Technology Made Simple</h2>
+  <span class="age-tag snr">Seniors</span>
+  <h2>Stay Connected &amp; Stay Safe</h2>
+  <p>Clear, jargon-free lessons — designed to be revisited as many times as you need.</p>
 
-    <div class="card-container">
+  <div class="cards">
 
-        <div class="topic-card">
-            <h3>Phone Basics</h3>
-            <p>Adjust text size, volume, and accessibility settings.</p>
-
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
-
-            <div class="card-links">
-                <a href="#">Watch Video</a>
-                <a href="#">Read Guide</a>
-            </div>
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+      <div class="card-body">
+        <h3>Phone Basics</h3>
+        <p>Adjust text size, volume, and accessibility settings to make your phone easier to use.</p>
+        <div class="links">
+          <a href="#" class="primary">▶ Watch</a>
+          <a href="#" class="outline">📖 Read</a>
         </div>
-
-        <div class="topic-card">
-            <h3>Video Calling Family</h3>
-            <p>Learn how to connect with loved ones using video calls.</p>
-
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
-
-            <div class="card-links">
-                <a href="#">Watch Video</a>
-                <a href="#">Read Guide</a>
-            </div>
-        </div>
-
-        <div class="topic-card">
-            <h3>Avoiding Online Scams</h3>
-            <p>Recognize suspicious messages and stay safe online.</p>
-
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
-
-            <div class="card-links">
-                <a href="#">Watch Video</a>
-                <a href="#">Read Guide</a>
-            </div>
-        </div>
-
+      </div>
     </div>
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+      <div class="card-body">
+        <h3>Video Calling Family</h3>
+        <p>Connect face-to-face with loved ones using FaceTime, Zoom, or WhatsApp — step by step.</p>
+        <div class="links">
+          <a href="#" class="primary">▶ Watch</a>
+          <a href="#" class="outline">📖 Read</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+      <div class="card-body">
+        <h3>Avoiding Online Scams</h3>
+        <p>Recognize suspicious emails and fake calls, and know exactly what to do if targeted.</p>
+        <div class="links">
+          <a href="#" class="primary">▶ Watch</a>
+          <a href="#" class="outline">📖 Read</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+      <div class="card-body">
+        <h3>Using Voice Assistants</h3>
+        <p>Ask Siri, Google, or Alexa to help with reminders, questions, and calls — hands-free.</p>
+        <div class="links">
+          <a href="#" class="primary">▶ Watch</a>
+          <a href="#" class="outline">📖 Read</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tip">
+    <div class="icon">🤝</div>
+    <div>
+      <h4>You're Not Alone</h4>
+      <p>It's completely normal to rewatch or re-read a guide multiple times. Ask a family member, friend, or local librarian to walk through it with you.</p>
+    </div>
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-    <p>© Media & Technology Club</p>
+  made with ❤️ by the <strong>media &amp; technology club</strong> &nbsp;·&nbsp; free for everyone to use
 </footer>
 
 </body>
