@@ -1,178 +1,151 @@
-/* =======================
-   Global Styles
-======================= */
-
+/* === BASE === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-    font-family: Georgia, "Times New Roman", serif;
-    background-color: #faf8ff;
-    color: #222;
-    margin: 0;
-    line-height: 1.6;
+  font-family: 'Questrial', sans-serif;
+  background: #f0ede6;
+  color: #1a1a1a;
 }
 
-/* =======================
-   Header
-======================= */
-
+/* === HEADER === */
 header {
-    background: #4b0082;
-    text-align: center;
-    padding: 35px 20px;
-    border-bottom: 3px solid #ffffff;
+  background: #faf8f3;
+  border-top: 4px solid #6a8caf;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  padding: 44px 20px 38px;
 }
-
+header .eyebrow {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #6a8caf;
+  margin-bottom: 12px;
+}
 header h1 {
-    margin: 0;
-    font-size: 2.4rem;
-    color: #ffffff;
+  font-size: 2.6rem;
+  font-weight: 400;
+}
+header h1 span { color: #6a8caf; }
+header .subline {
+  margin-top: 10px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.82rem;
+  color: #999;
 }
 
-/* =======================
-   Navigation
-======================= */
-
+/* === NAV === */
 nav {
-    background: #f3edff;
-    text-align: center;
-    padding: 14px 0;
-    border-bottom: 1px solid #ddd;
+  background: #faf8f3;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
-
 nav a {
-    color: #4b0082;
-    text-decoration: none;
-    margin: 0 18px;
-    font-weight: 600;
-    transition: color 0.25s ease;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555;
+  text-decoration: none;
+  margin: 0 8px;
+  padding: 6px 14px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  transition: all 0.15s;
 }
-
 nav a:hover {
-    color: #7c5cff;
+  border-color: #6a8caf;
+  color: #6a8caf;
 }
 
-/* =======================
-   Sections
-======================= */
-
+/* === SECTIONS === */
 section {
-    max-width: 1000px;
-    margin: 45px auto;
-    padding: 28px;
-    background: #ffffff;
-    border-radius: 14px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  max-width: 960px;
+  margin: 56px auto;
+  padding: 0 24px;
 }
-
 section h2 {
-    color: #4b0082;
-    border-bottom: 2px solid #e4dbff;
-    padding-bottom: 8px;
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+}
+section p {
+  font-size: 0.97rem;
+  color: #555;
+  line-height: 1.8;
 }
 
-/* =======================
-   Typography
-======================= */
-
-p {
-    font-size: 1.05rem;
+/* === CARDS === */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+.card {
+  background: #faf8f3;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+}
+.card:hover {
+  box-shadow: 4px 4px 0px #6a8caf;
 }
 
-/* =======================
-   Card Grid
-======================= */
-
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
+/* === BUTTONS === */
+button {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.8rem;
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  border: none;
+}
+.primary {
+  background: #6a8caf;
+  color: white;
+}
+.outline {
+  border: 1px solid #bbb;
+  color: #555;
+  background: none;
 }
 
-/* =======================
-   Topic Cards
-======================= */
-
-.topic-card {
-    background: #faf8ff;
-    border: 1px solid #e4dbff;
-    padding: 20px;
-    border-radius: 12px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* === POPUP === */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+.popup-content {
+  background: #faf8f3;
+  width: 90%;
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 6px;
+}
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
 }
 
-.topic-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-}
-
-.topic-card h3 {
-    margin-top: 0;
-    color: #4b0082;
-}
-
-/* =======================
-   Video Styling
-======================= */
-
-.topic-card iframe {
-    width: 100%;
-    height: 190px;
-    border: none;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-
-/* =======================
-   Card Buttons
-======================= */
-
-.card-links {
-    margin-top: 14px;
-    display: flex;
-    gap: 10px;
-}
-
-.card-links a {
-    text-decoration: none;
-    background: #7c5cff;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: background 0.2s ease;
-}
-
-.card-links a:hover {
-    background: #5e3fff;
-}
-
-/* =======================
-   Footer
-======================= */
-
+/* === FOOTER === */
 footer {
-    text-align: center;
-    padding: 22px;
-    margin-top: 40px;
-    background: #f3edff;
-    color: #4b0082;
-    border-top: 1px solid #ddd;
-}
-
-/* =======================
-   Mobile Responsive
-======================= */
-
-@media (max-width: 600px) {
-
-    nav a {
-        display: block;
-        margin: 10px 0;
-    }
-
-    section {
-        margin: 20px 15px;
-        padding: 20px;
-    }
+  background: #faf8f3;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  padding: 26px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.78rem;
+  color: #999;
+  margin-top: 70px;
 }
