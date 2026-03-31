@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Interactive Tools</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #f0ede6;
+  text-align: center;
+  padding: 40px;
+}
+
+/* BUTTON */
+button {
+  padding: 10px 16px;
+  margin: 10px;
+  border: none;
+  background: #6a8caf;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* POPUP */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.popup-content {
+  background: white;
+  width: 90%;
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Interactive Safety Tools</h1>
+<p>Practice your digital safety skills.</p>
+
+<button onclick="openQuiz()">Start Scam Quiz</button>
+
+<!-- POPUP -->
+<div id="quizPopup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closeQuiz()">&times;</span>
+
+    <h2 id="question">Question here</h2>
+
+    <button onclick="answer(false)">Safe</button>
+    <button onclick="answer(true)">Scam</button>
+
+    <p id="feedback"></p>
+  </div>
+</div>
+
+<script>
+let current = 0;
+
+const questions = [
+  {
+    text: "Your bank asks you to click a link to verify your account.",
+    answer: true
+  },
+  {
+    text: "A teacher emails you from their official school email.",
+    answer: false
+  },
+  {
+    text: "You win a free iPhone from a random website.",
+    answer: true
+  }
+];
+
+function openQuiz() {
+  document.getElementById("quizPopup").style.display = "block";
+  loadQuestion();
+}
+
+function closeQuiz() {
+  document.getElementById("quizPopup").style.display = "none";
+}
+
+function loadQuestion() {
+  document.getElementById("question").innerText = questions[current].text;
+  document.getElementById("feedback").innerText = "";
+}
+
+function answer(userAnswer) {
+  const correct = questions[current].answer;
+  const feedback = document.getElementById("feedback");
+
+  if (userAnswer === correct) {
+    feedback.innerText = "Correct!";
+    feedback.style.color = "green";
+  } else {
+    feedback.innerText = "Not quite — think carefully about safety.";
+    feedback.style.color = "red";
+  }
+
+  current++;
+
+  if (current < questions.length) {
+    setTimeout(loadQuestion, 1200);
+  } else {
+    setTimeout(() => {
+      feedback.innerText = "Quiz complete!";
+    }, 1200);
+  }
+}
+</script>
+
+</body>
+</html>
