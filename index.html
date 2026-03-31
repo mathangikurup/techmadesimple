@@ -303,6 +303,28 @@
   <h2>About This Project</h2>
   <p>Technology helps people stay connected, informed, and independent in today's digital world. As new devices and platforms continue to evolve, it can be difficult to keep up with the skills needed to use them safely and confidently.</p>
   <p>This project was created by students in the <strong>Media &amp; Technology Club</strong> to provide simple, easy-to-follow guides for learners of all ages — from young kids exploring the internet for the first time to seniors making their first video call.</p>
+  <p>Our goal is to build confidence with technology and strengthen connections across generations.</p>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <h2>Our Impact</h2>
+  <p>We are just getting started — and growing every day.</p>
+
+  <div class="steps">
+    <div class="step">
+      <h3>People Reached</h3>
+      <p id="peopleCount">0 learners</p>
+    </div>
+    <div class="step">
+      <h3>Workshops Held</h3>
+      <p id="workshopCount">0 sessions</p>
+    </div>
+    <div class="step">
+      <h3>Volunteers</h3>
+      <p id="volunteerCount">0 contributors</p>
+    </div>
+  </div>
 </section>
 
 <!-- HOW IT WORKS -->
@@ -326,7 +348,7 @@
 
 <!-- KIDS -->
 <section id="kids">
-  <span class="age-tag kids"> Kids (Ages 6–12) </span>
+  <span class="age-tag kids"> Kids Ages 6–12</span>
   <h2>Safe &amp; Kind Online Habits</h2>
   <p>Fun, easy lessons to help kids explore the internet safely and treat others with kindness.</p>
 
@@ -429,8 +451,8 @@
 <!-- SENIORS -->
 <section id="seniors">
   <span class="age-tag snr">Seniors</span>
-  <h2>Staying Connected</h2>
-  <p>Learn at your own pace with easy-to-follow lessons. </p>
+  <h2>Stay Connected &amp; Stay Safe</h2>
+  <p>Clear, jargon-free lessons — designed to be revisited as many times as you need.</p>
 
   <div class="cards">
 
@@ -493,11 +515,99 @@
   </div>
 </section>
 
+<!-- INTERACTIVE TOOLS -->
+<section id="tools">
+  <h2>Interactive Learning Tools</h2>
+  <p>Practice your skills with these simple tools designed to help you stay safe online.</p>
+
+  <div class="cards">
+
+    <!-- SCAM QUIZ -->
+    <div class="card">
+      <div class="card-body">
+        <h3>Is This a Scam?</h3>
+        <p>Read the message below and decide if it’s safe or a scam.</p>
+
+        <p id="scamText" style="margin:10px 0; font-style:italic;">
+          "Your bank account has been locked. Click this link immediately to verify your identity."
+        </p>
+
+        <div class="links">
+          <a href="#" class="primary" onclick="checkScam(true)">Safe</a>
+          <a href="#" class="outline" onclick="checkScam(false)">Scam</a>
+        </div>
+
+        <p id="scamResult" style="margin-top:10px; font-size:0.85rem;"></p>
+      </div>
+    </div>
+
+    <!-- PASSWORD CHECKER -->
+    <div class="card">
+      <div class="card-body">
+        <h3>Password Strength Checker</h3>
+        <p>Type a password to see how strong it is.</p>
+
+        <input type="text" id="passwordInput" placeholder="Enter password"
+          style="width:100%; padding:8px; margin-top:10px; border:1px solid #ccc; border-radius:4px;">
+
+        <p id="passwordResult" style="margin-top:10px; font-size:0.85rem;"></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTRIBUTE -->
+<section id="contribute">
+  <h2>Get Involved</h2>
+  <p>We are building a community of students and volunteers who want to improve digital literacy for all ages. You can help by creating lessons, videos, or guides.</p>
+
+  <div class="tip">
+    <div class="icon">🌱</div>
+    <div>
+      <h4>Become a Contributor</h4>
+      <p>Submit your own lesson or idea and help expand this platform to reach more learners.</p>
+      <a href="YOUR_GOOGLE_FORM_LINK" class="primary" style="display:inline-block; margin-top:10px; padding:8px 12px; text-decoration:none;">Apply Here</a>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   made with ❤️ by the <strong>media &amp; technology club</strong> &nbsp;·&nbsp; free for everyone to use
 </footer>
 
+<script>
+  function checkScam(isSafe) {
+    const result = document.getElementById("scamResult");
+
+    if (isSafe) {
+      result.innerHTML = "❌ This is actually a scam. Banks do not ask for verification through random links.";
+      result.style.color = "red";
+    } else {
+      result.innerHTML = "✅ Correct! This is a common phishing scam.";
+      result.style.color = "green";
+    }
+  }
+
+  const passwordInput = document.getElementById("passwordInput");
+  const passwordResult = document.getElementById("passwordResult");
+
+  passwordInput.addEventListener("input", function () {
+    const val = passwordInput.value;
+
+    if (val.length < 6) {
+      passwordResult.innerHTML = "Weak password ❌";
+      passwordResult.style.color = "red";
+    } else if (val.match(/[A-Z]/) && val.match(/[0-9]/) && val.length > 8) {
+      passwordResult.innerHTML = "Strong password ✅";
+      passwordResult.style.color = "green";
+    } else {
+      passwordResult.innerHTML = "Moderate password ⚠️";
+      passwordResult.style.color = "orange";
+    }
+  });
+</script>
+
 </body>
 </html>
-
