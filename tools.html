@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Tools — Technology Made Simple</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Media &amp; Technology Club</div>
+  <h1>Technology <span>Made Simple</span></h1>
+  <div class="subline">interactive tools to practice digital safety</div>
+</header>
+
+<nav>
+  <div class="nav-items">
+    <a href="index.html#about">About</a>
+    <a href="index.html#how">How It Works</a>
+    <div class="dropdown">
+      <span class="nav-link">Guides</span>
+      <div class="dropdown-menu">
+        <a href="kids.html">Kids (Ages 6–12)</a>
+        <a href="teens.html">Teens &amp; Adults</a>
+        <a href="seniors.html">Seniors</a>
+      </div>
+    </div>
+    <a href="tools.html">Interactive Tools</a>
+  </div>
+</nav>
+
+<hr class="divider">
+
+<!-- QUIZZES -->
+<section>
+  <h2>Knowledge Quizzes</h2>
+  <p>Test what you know about staying safe online. Each quiz has 5 questions — pick a topic and give it a try.</p>
+
+  <div class="cards" style="margin-top: 22px;">
+
+    <div class="card">
+      <div class="card-body">
+        <span class="age-tag snr">All Ages</span>
+        <h3>Scam Detection</h3>
+        <p>Can you tell the difference between a real message and a scam? Put your instincts to the test.</p>
+        <div class="links">
+          <button class="btn-primary" onclick="openQuiz('scam')">Start Quiz</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <span class="age-tag teens">Teens &amp; Adults</span>
+        <h3>Password Safety</h3>
+        <p>How much do you know about creating and protecting strong passwords?</p>
+        <div class="links">
+          <button class="btn-primary" onclick="openQuiz('password')">Start Quiz</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <span class="age-tag teens">Teens &amp; Adults</span>
+        <h3>Safe Browsing</h3>
+        <p>Test your knowledge of safe habits when exploring websites and clicking links online.</p>
+        <div class="links">
+          <button class="btn-primary" onclick="openQuiz('browsing')">Start Quiz</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <span class="age-tag kids">Kids</span>
+        <h3>Social Media Safety</h3>
+        <p>Learn the rules for staying safe and kind when using social media and chatting online.</p>
+        <div class="links">
+          <button class="btn-primary" onclick="openQuiz('social')">Start Quiz</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <span class="age-tag snr">Seniors</span>
+        <h3>Privacy Basics</h3>
+        <p>How well do you protect your personal information? Find out with these privacy questions.</p>
+        <div class="links">
+          <button class="btn-primary" onclick="openQuiz('privacy')">Start Quiz</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PASSWORD CHECKER -->
+<section>
+  <h2>Password Strength Checker</h2>
+  <p>Type a password below to see how strong it is — nothing you type here is saved or sent anywhere.</p>
+
+  <div class="tool-box" style="margin-top: 22px;">
+    <input type="password" id="passwordInput" placeholder="Type a password to test it…">
+    <div class="strength-bar">
+      <div id="strengthFill"></div>
+    </div>
+    <p id="passwordResult" class="tool-result"></p>
+    <ul id="passwordTips" class="tool-tips"></ul>
+  </div>
+
+  <div class="tip">
+    <div class="icon">🔒</div>
+    <div>
+      <h4>Privacy Note</h4>
+      <p>This checker runs entirely in your browser. Nothing you type is stored or transmitted — it's just for practice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- JARGON DECODER -->
+<section>
+  <h2>Tech Jargon Decoder</h2>
+  <p>Confused by tech words? Click any term below to see a plain-English explanation.</p>
+
+  <div class="jargon-grid" style="margin-top: 22px;">
+    <button class="jargon-btn" onclick="showJargon('phishing')">Phishing</button>
+    <button class="jargon-btn" onclick="showJargon('vpn')">VPN</button>
+    <button class="jargon-btn" onclick="showJargon('malware')">Malware</button>
+    <button class="jargon-btn" onclick="showJargon('2fa')">Two-Factor Auth</button>
+    <button class="jargon-btn" onclick="showJargon('encryption')">Encryption</button>
+    <button class="jargon-btn" onclick="showJargon('firewall')">Firewall</button>
+    <button class="jargon-btn" onclick="showJargon('cookie')">Cookie</button>
+    <button class="jargon-btn" onclick="showJargon('https')">HTTPS</button>
+    <button class="jargon-btn" onclick="showJargon('cloud')">The Cloud</button>
+    <button class="jargon-btn" onclick="showJargon('spam')">Spam</button>
+    <button class="jargon-btn" onclick="showJargon('update')">Software Update</button>
+    <button class="jargon-btn" onclick="showJargon('wifi')">Public Wi-Fi</button>
+  </div>
+
+  <div id="jargonBox" class="tip" style="display:none; margin-top:18px;">
+    <div class="icon">💡</div>
+    <div>
+      <h4 id="jargonTerm"></h4>
+      <p id="jargonDef"></p>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ POPUP -->
+<div id="quizPopup" class="popup">
+  <div class="popup-content card">
+    <span class="close" onclick="closeQuiz()">&times;</span>
+
+    <div id="quizInProgress">
+      <div class="quiz-meta">
+        <span id="quizTitle" class="quiz-label"></span>
+        <span id="quizProgress" class="quiz-progress"></span>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+      </div>
+      <p id="question" class="quiz-question"></p>
+      <div id="answerButtons"></div>
+      <p id="feedback" class="quiz-feedback"></p>
+    </div>
+
+    <div id="quizResults" style="display:none;">
+      <div class="results-icon" id="resultsIcon"></div>
+      <h2 class="results-title">Quiz Complete!</h2>
+      <p class="results-score" id="resultsScore"></p>
+      <p class="results-message" id="resultsMessage"></p>
+      <div class="quiz-buttons" style="margin-top:24px;">
+        <button class="btn-primary" onclick="retakeQuiz()">↺ Retake</button>
+        <button class="btn-outline" onclick="closeQuiz()">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  made with ❤️ by the <strong>media &amp; technology club</strong> &nbsp;·&nbsp; free for everyone to use
+</footer>
+
+<script>
+const jargonTerms = {
+  phishing:   { term: "Phishing", def: "A trick where criminals send fake emails or texts pretending to be a trusted company — like your bank — to steal your password or personal info. If something asks you to click a link urgently, be suspicious." },
+  vpn:        { term: "VPN (Virtual Private Network)", def: "A tool that hides your internet activity by routing it through a private server. Useful on public Wi-Fi to stop others from snooping on what you're doing online." },
+  malware:    { term: "Malware", def: "Short for 'malicious software' — programs designed to harm your device or steal your data. Viruses, spyware, and ransomware are all types of malware. Avoid downloading files from unknown sources." },
+  "2fa":      { term: "Two-Factor Authentication (2FA)", def: "A second security step after your password — like a code sent to your phone. Even if someone steals your password, they still can't get in without the second step." },
+  encryption: { term: "Encryption", def: "A way of scrambling data so only the intended recipient can read it. When you see HTTPS in a web address, your connection to that site is encrypted — meaning no one can easily intercept it." },
+  firewall:   { term: "Firewall", def: "A security system (built into your computer or router) that monitors incoming and outgoing traffic and blocks suspicious activity. Think of it as a security guard for your internet connection." },
+  cookie:     { term: "Cookie", def: "A small file websites save on your device to remember you — like staying logged in or keeping items in your shopping cart. Some cookies also track your browsing habits for advertising." },
+  https:      { term: "HTTPS", def: "The 'S' stands for Secure. It means your connection to a website is encrypted. Always check for HTTPS (and a padlock icon) before entering passwords or payment details." },
+  cloud:      { term: "The Cloud", def: "Storing or accessing files and programs on remote servers over the internet instead of just on your own device. Google Drive, iCloud, and Dropbox are all examples of cloud storage." },
+  spam:       { term: "Spam", def: "Unwanted bulk messages — usually emails — often advertising something or trying to scam you. Never click links or open attachments in emails you weren't expecting from unknown senders." },
+  update:     { term: "Software Update", def: "A new version of an app or operating system that often fixes security vulnerabilities. Keeping your software updated is one of the easiest ways to protect yourself online." },
+  wifi:       { term: "Public Wi-Fi", def: "Free internet in places like cafes or airports. It's convenient but risky — other people on the same network can sometimes see your activity. Avoid logging into bank accounts or sensitive sites on public Wi-Fi." }
+};
+
+function showJargon(key) {
+  const item = jargonTerms[key];
+  document.getElementById('jargonTerm').innerText = item.term;
+  document.getElementById('jargonDef').innerText = item.def;
+  const box = document.getElementById('jargonBox');
+  box.style.display = 'flex';
+  box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+const quizzes = {
+  scam: {
+    label: "Scam Detection",
+    type: "truefalse",
+    questions: [
+      { text: "Your bank sends a text asking you to click a link and verify your account immediately.", answer: true, explanation: "Banks never ask you to verify accounts via unsolicited text links — this is a classic phishing scam." },
+      { text: "You receive an email from your teacher's official school address about an upcoming assignment.", answer: false, explanation: "An official school email address is a trusted, legitimate source." },
+      { text: "A pop-up says you've won a free iPhone — just enter your credit card to cover shipping.", answer: true, explanation: "Requests for payment to claim a 'free' prize are almost always scams designed to steal your card details." },
+      { text: "An online store you recently shopped at sends an order confirmation to the email you used at checkout.", answer: false, explanation: "Order confirmations from stores you actually shopped at are legitimate and expected." },
+      { text: "Someone calls claiming to be from the IRS, demanding you pay an overdue bill immediately using gift cards.", answer: true, explanation: "Government agencies never demand gift card payments — this is a well-known phone scam." }
+    ]
+  },
+
+  password: {
+    label: "Password Safety",
+    type: "multiple",
+    questions: [
+      { text: "Which of these is the strongest password?", choices: ["password123", "Tr0ub4dor&3!", "myname2005", "abc123"], answer: 1, explanation: "Strong passwords mix uppercase, lowercase, numbers, and symbols — and avoid common words or personal info." },
+      { text: "What should you do if you use the same password on multiple sites?", choices: ["Nothing — it's probably fine", "Change them to unique passwords for each site", "Add a '!' to the end of each one", "Write them all in a single document"], answer: 1, explanation: "Reusing passwords means one breach can compromise every account. Use a unique password for each site." },
+      { text: "What is two-factor authentication (2FA)?", choices: ["Using two different passwords", "A second verification step after your password", "Logging in from two different devices", "Having two separate email accounts"], answer: 1, explanation: "2FA adds a second layer — like a code sent to your phone — making accounts much harder to break into." },
+      { text: "Which is the safest way to store your passwords?", choices: ["A sticky note on your monitor", "A text file on your desktop", "A trusted password manager app", "Only memorizing them"], answer: 2, explanation: "Password managers encrypt and securely store all your passwords so you only need to remember one master password." },
+      { text: "What should you do immediately if you think your account was hacked?", choices: ["Wait and see if anything happens", "Change your password once a month", "Change your password right away", "Delete the account entirely"], answer: 2, explanation: "If you suspect a breach, change your password immediately to limit potential damage to your account." }
+    ]
+  },
+
+  browsing: {
+    label: "Safe Browsing",
+    type: "multiple",
+    questions: [
+      { text: "What does the padlock icon in your browser's address bar mean?", choices: ["The site is completely safe and trustworthy", "Your connection to the site is encrypted", "The site has been government-approved", "You are currently logged in"], answer: 1, explanation: "The padlock means the connection is encrypted (HTTPS), but it doesn't guarantee the site itself is trustworthy." },
+      { text: "A pop-up says your computer has a virus and to call a support number immediately. What do you do?", choices: ["Call the number right away", "Click the pop-up for more details", "Close the browser tab — it's a scare tactic", "Download the software it recommends"], answer: 2, explanation: "These 'scareware' pop-ups are fake. Close the tab and run your own trusted antivirus software if concerned." },
+      { text: "Which of these URLs looks the most suspicious?", choices: ["https://google.com", "http://g00gle-login.xyz", "https://support.apple.com", "https://wikipedia.org"], answer: 1, explanation: "Fake URLs use look-alike characters (0 instead of o) and unusual domains (.xyz) to deceive users." },
+      { text: "What is the safest action when using public Wi-Fi at a café?", choices: ["Log into all your accounts as usual", "Avoid sensitive accounts or use a VPN", "Share files with nearby devices freely", "Disable your firewall for faster speeds"], answer: 1, explanation: "Public Wi-Fi can be monitored. Avoid sensitive accounts or use a VPN to keep your traffic encrypted." },
+      { text: "A website asks permission to send you notifications. What's the safest approach for an unfamiliar site?", choices: ["Always allow — it improves the experience", "Click 'Allow' only if the site looks nice", "Click 'Block' or dismiss the request", "Ignore it and leave the tab open"], answer: 2, explanation: "Unfamiliar sites can misuse notification permissions to spam you. Block or dismiss unless you truly trust the site." }
+    ]
+  },
+
+  social: {
+    label: "Social Media Safety",
+    type: "multiple",
+    questions: [
+      { text: "Someone you've never met online asks for your home address. What should you do?", choices: ["Share it — they seem friendly", "Give a nearby landmark instead", "Don't share it and tell a trusted adult", "Only share your city name"], answer: 2, explanation: "Never share your address with someone you only know online. Tell a trusted adult if someone asks." },
+      { text: "You see a mean comment posted about a classmate. What's the best response?", choices: ["Like it — it's just a joke", "Leave a mean reply back", "Ignore it completely", "Screenshot it and tell a trusted adult"], answer: 3, explanation: "Cyberbullying should be reported. Screenshotting evidence and telling an adult helps protect your classmate." },
+      { text: "Which type of information is safe to post publicly on social media?", choices: ["Your school name and class schedule", "Your phone number", "A photo of your favorite book", "Your home address"], answer: 2, explanation: "Posting your favorite book or hobby is generally safe. Personal details like your address, phone, or school schedule should stay private." },
+      { text: "A stranger sends you a direct message saying they want to be friends and asks you to keep the conversation secret. What do you do?", choices: ["Keep chatting — they seem nice", "Share your email so you can talk more privately", "Stop responding and tell a trusted adult", "Accept their friend request first"], answer: 2, explanation: "Anyone who asks you to keep online conversations secret is a warning sign. Always tell a trusted adult." },
+      { text: "Before posting a photo of a friend online, what should you do first?", choices: ["Post it — they'll probably like it", "Ask your friend's permission first", "Tag as many people as possible", "Make sure the lighting looks good"], answer: 1, explanation: "Always ask permission before posting photos of others. Respecting privacy is an important part of online kindness." }
+    ]
+  },
+
+  privacy: {
+    label: "Privacy Basics",
+    type: "multiple",
+    questions: [
+      { text: "A website you've never used before asks for your full name, birthday, and phone number just to read an article. What should you do?", choices: ["Fill it all in — the article looks interesting", "Only enter your name", "Leave the site — it's asking for too much", "Use a friend's information instead"], answer: 2, explanation: "Legitimate news sites don't require sensitive personal details to read an article. If a site asks for too much, leave." },
+      { text: "You receive an email asking you to 'confirm your identity' by clicking a link and entering your Social Security number. What is this?", choices: ["A routine security check", "A phishing scam", "A message from your bank", "A government notification"], answer: 1, explanation: "No legitimate organization will ask for your Social Security number via an unsolicited email link. This is a phishing scam." },
+      { text: "Which of the following is the best way to protect your privacy on your smartphone?", choices: ["Leave Bluetooth on at all times", "Allow all apps to access your location", "Only grant apps the permissions they actually need", "Share your phone's password with close friends"], answer: 2, explanation: "Only granting necessary permissions limits how much data apps can collect about you." },
+      { text: "What does it mean to 'log out' of an account on a shared computer?", choices: ["Closing the browser window", "Ending your session so others can't access your account", "Deleting your browsing history", "Turning off the computer"], answer: 1, explanation: "Closing the browser doesn't always end your session. Always click 'Log out' on shared devices to protect your account." },
+      { text: "A company's privacy policy explains how they use your data. When should you read it?", choices: ["Never — they're too long", "Only if something goes wrong", "Before you sign up or share personal information", "After you've been using the service for a year"], answer: 2, explanation: "Reading a privacy policy before signing up helps you understand what data is collected and how it's used." }
+    ]
+  }
+};
+
+let activeQuizKey = null;
+let current = 0;
+let score = 0;
+let answered = false;
+
+function openQuiz(quizKey) {
+  activeQuizKey = quizKey;
+  current = 0; score = 0; answered = false;
+  document.getElementById("quizInProgress").style.display = "block";
+  document.getElementById("quizResults").style.display = "none";
+  document.getElementById("quizPopup").style.display = "flex";
+  loadQuestion();
+}
+
+function closeQuiz() {
+  document.getElementById("quizPopup").style.display = "none";
+}
+
+function retakeQuiz() {
+  current = 0; score = 0; answered = false;
+  document.getElementById("quizInProgress").style.display = "block";
+  document.getElementById("quizResults").style.display = "none";
+  loadQuestion();
+}
+
+function loadQuestion() {
+  answered = false;
+  const quiz = quizzes[activeQuizKey];
+  const q = quiz.questions[current];
+  const total = quiz.questions.length;
+
+  document.getElementById("quizTitle").innerText = quiz.label;
+  document.getElementById("quizProgress").innerText = `${current + 1} / ${total}`;
+  document.getElementById("question").innerText = q.text;
+  document.getElementById("feedback").innerText = "";
+  document.getElementById("feedback").style.color = "#555";
+  document.getElementById("progressBarFill").style.width = `${(current / total) * 100}%`;
+
+  const container = document.getElementById("answerButtons");
+  container.innerHTML = "";
+
+  if (quiz.type === "truefalse") {
+    const wrap = document.createElement("div");
+    wrap.className = "tf-wrap";
+
+    const safeBtn = document.createElement("button");
+    safeBtn.className = "btn-primary";
+    safeBtn.innerText = "✅ Safe";
+    safeBtn.onclick = () => answerTF(false);
+
+    const scamBtn = document.createElement("button");
+    scamBtn.className = "btn-outline";
+    scamBtn.innerText = "🚩 Scam";
+    scamBtn.onclick = () => answerTF(true);
+
+    wrap.appendChild(safeBtn);
+    wrap.appendChild(scamBtn);
+    container.appendChild(wrap);
+  } else {
+    q.choices.forEach((choice, i) => {
+      const btn = document.createElement("button");
+      btn.className = "choice-btn";
+      btn.innerText = choice;
+      btn.onclick = () => answerMultiple(i, btn);
+      container.appendChild(btn);
+    });
+  }
+}
+
+function answerTF(userAnswer) {
+  if (answered) return;
+  answered = true;
+  const q = quizzes[activeQuizKey].questions[current];
+  const feedback = document.getElementById("feedback");
+  const btns = document.getElementById("answerButtons").querySelectorAll("button");
+  if (userAnswer === q.answer) {
+    score++;
+    feedback.innerText = "✓ Correct! " + q.explanation;
+    feedback.style.color = "#059669";
+  } else {
+    feedback.innerText = "✗ Not quite. " + q.explanation;
+    feedback.style.color = "#dc2626";
+  }
+  btns.forEach(b => b.disabled = true);
+  setTimeout(nextQuestion, 2200);
+}
+
+function answerMultiple(index, btn) {
+  if (answered) return;
+  answered = true;
+  const q = quizzes[activeQuizKey].questions[current];
+  const feedback = document.getElementById("feedback");
+  const allBtns = document.getElementById("answerButtons").querySelectorAll(".choice-btn");
+  allBtns.forEach(b => b.disabled = true);
+  if (index === q.answer) {
+    score++;
+    btn.classList.add("correct");
+    feedback.innerText = "✓ Correct! " + q.explanation;
+    feedback.style.color = "#059669";
+  } else {
+    btn.classList.add("wrong");
+    allBtns[q.answer].classList.add("correct");
+    feedback.innerText = "✗ Not quite. " + q.explanation;
+    feedback.style.color = "#dc2626";
+  }
+  setTimeout(nextQuestion, 2400);
+}
+
+function nextQuestion() {
+  current++;
+  if (current < quizzes[activeQuizKey].questions.length) {
+    loadQuestion();
+  } else {
+    showResults();
+  }
+}
+
+function showResults() {
+  const total = quizzes[activeQuizKey].questions.length;
+  const pct = Math.round((score / total) * 100);
+  document.getElementById("progressBarFill").style.width = "100%";
+  document.getElementById("quizInProgress").style.display = "none";
+  document.getElementById("quizResults").style.display = "block";
+  document.getElementById("resultsScore").innerText = `${score} / ${total}`;
+
+  let icon, message;
+  if (pct === 100)     { icon = "🏆"; message = "Perfect score! You're a digital safety pro."; }
+  else if (pct >= 80)  { icon = "🌟"; message = "Great work! You have strong digital safety instincts."; }
+  else if (pct >= 60)  { icon = "👍"; message = "Good effort! Review the questions you missed and try again."; }
+  else                 { icon = "📚"; message = "Keep practicing — check out the guides for helpful tips, then try again!"; }
+
+  document.getElementById("resultsIcon").innerText = icon;
+  document.getElementById("resultsMessage").innerText = message;
+}
+
+// Password checker
+document.getElementById("passwordInput").addEventListener("input", function () {
+  const val = this.value;
+  const result = document.getElementById("passwordResult");
+  const fill = document.getElementById("strengthFill");
+  const tips = document.getElementById("passwordTips");
+
+  if (val.length === 0) {
+    result.innerHTML = ""; fill.style.width = "0"; tips.innerHTML = ""; return;
+  }
+
+  const checks = {
+    length6:  val.length >= 6,
+    length10: val.length >= 10,
+    upper:    /[A-Z]/.test(val),
+    lower:    /[a-z]/.test(val),
+    number:   /[0-9]/.test(val),
+    special:  /[^A-Za-z0-9]/.test(val),
+  };
+  const passed = Object.values(checks).filter(Boolean).length;
+
+  let label, color, width;
+  if (val.length < 6)      { label = "Too short ❌";    color = "#dc2626"; width = "15%"; }
+  else if (passed <= 2)    { label = "Weak ⚠️";         color = "#f97316"; width = "30%"; }
+  else if (passed <= 4)    { label = "Moderate 👍";     color = "#eab308"; width = "60%"; }
+  else if (passed === 5)   { label = "Strong ✅";       color = "#16a34a"; width = "85%"; }
+  else                     { label = "Very Strong 🏆";  color = "#059669"; width = "100%"; }
+
+  result.innerHTML = label;
+  result.style.color = color;
+  fill.style.background = color;
+  fill.style.width = width;
+
+  tips.innerHTML = [
+    { ok: checks.length6,  text: "At least 6 characters" },
+    { ok: checks.length10, text: "10 or more characters" },
+    { ok: checks.upper,    text: "Uppercase letter (A–Z)" },
+    { ok: checks.lower,    text: "Lowercase letter (a–z)" },
+    { ok: checks.number,   text: "Number (0–9)" },
+    { ok: checks.special,  text: "Special character (!@#$...)" },
+  ].map(t => `<li style="color:${t.ok ? '#059669' : '#bbb'}">${t.ok ? '✓' : '○'} ${t.text}</li>`).join("");
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,538 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Questrial', sans-serif;
+  background: #f0ede6;
+  color: #1a1a1a;
+}
+
+/* ─── HEADER ─────────────────────────────────────── */
+header {
+  background: #faf8f3;
+  border-top: 4px solid #6a8caf;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  padding: 44px 20px 38px;
+}
+header .eyebrow {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #6a8caf;
+  margin-bottom: 12px;
+}
+header h1 {
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  letter-spacing: 0.01em;
+}
+header h1 span { color: #6a8caf; }
+header .subline {
+  margin-top: 10px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.82rem;
+  color: #999;
+}
+
+/* ─── NAV ─────────────────────────────────────────── */
+nav {
+  background: #faf8f3;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav .nav-items {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+nav a,
+nav .dropdown > .nav-link {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555;
+  text-decoration: none;
+  margin: 0 4px;
+  padding: 6px 14px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  transition: all 0.15s;
+  display: inline-block;
+  cursor: pointer;
+  background: none;
+}
+nav a:hover,
+nav .dropdown > .nav-link:hover,
+nav .dropdown:hover > .nav-link {
+  border-color: #6a8caf;
+  color: #6a8caf;
+}
+nav .dropdown {
+  position: relative;
+  display: inline-block;
+}
+nav .dropdown > .nav-link::after {
+  content: ' ▾';
+  font-size: 0.65rem;
+  opacity: 0.6;
+}
+nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #faf8f3;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-width: 180px;
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  z-index: 200;
+}
+nav .dropdown:hover .dropdown-menu { display: block; }
+nav .dropdown-menu a {
+  display: block;
+  margin: 0;
+  padding: 9px 18px;
+  border: none;
+  border-radius: 0;
+  font-size: 0.78rem;
+  color: #444;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+nav .dropdown-menu a:last-child { border-bottom: none; }
+nav .dropdown-menu a:hover {
+  background: #ebe8e0;
+  color: #6a8caf;
+  border-color: transparent;
+}
+
+/* ─── DIVIDER ─────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px dashed #ccc;
+  margin: 0;
+}
+
+/* ─── SECTIONS ────────────────────────────────────── */
+section {
+  max-width: 1200px;
+  margin: 56px auto;
+  padding: 0 24px;
+}
+section h2 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-bottom: 14px;
+}
+section p {
+  font-size: 0.97rem;
+  color: #555;
+  line-height: 1.8;
+}
+section p + p { margin-top: 10px; }
+
+.page-intro {
+  max-width: 1200px;
+  margin: 48px auto 0;
+  padding: 0 24px 36px;
+  border-bottom: 1px dashed #ccc;
+}
+.page-intro h2 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.page-intro p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ─── STEP GRID ───────────────────────────────────── */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.step {
+  background: #faf8f3;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+}
+.step h3 {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 7px;
+  color: #333;
+}
+.step p { font-size: 0.87rem; color: #777; }
+
+/* ─── AGE TAGS ────────────────────────────────────── */
+.age-tag {
+  display: inline-block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+.kids  { background: #fef3c7; color: #92400e; }
+.teens { background: #dbeafe; color: #1e3a5f; }
+.snr   { background: #ede9fe; color: #4c1d95; }
+
+/* ─── CARDS ───────────────────────────────────────── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+.card {
+  background: #faf8f3;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.card:hover { box-shadow: 4px 4px 0 #6a8caf; }
+.card-media {
+  width: 100%;
+  height: 175px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #c8d8e8;
+}
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.2s;
+}
+.card:hover .card-media img { transform: scale(1.05); }
+.card-body { padding: 16px; }
+.card-body h3 {
+  font-size: 0.97rem;
+  font-weight: 400;
+  margin-bottom: 6px;
+  color: #1a1a1a;
+}
+.card-body p {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.card-body .links { display: flex; gap: 8px; }
+
+/* ─── BUTTONS ─────────────────────────────────────── */
+/* Shared base for anchor and button elements */
+.btn-primary,
+.card-body a.primary {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  padding: 7px 14px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  background: #6a8caf;
+  color: #fff;
+  transition: background 0.15s;
+}
+.btn-primary:hover,
+.card-body a.primary:hover { background: #567899; }
+
+.btn-outline,
+.card-body a.outline {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  padding: 7px 14px;
+  border-radius: 3px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  color: #555;
+  background: none;
+  transition: background 0.15s;
+}
+.btn-outline:hover,
+.card-body a.outline:hover { background: #ebe8e0; }
+
+/* Full-width button inside .links */
+.card-body .links .btn-primary,
+.card-body .links .btn-outline { flex: 1; }
+
+/* ─── TIP BOX ─────────────────────────────────────── */
+.tip {
+  background: #faf8f3;
+  border: 1px solid #ddd;
+  border-left: 3px solid #6a8caf;
+  border-radius: 4px;
+  padding: 20px 24px;
+  margin-top: 22px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.tip .icon { font-size: 1.3rem; flex-shrink: 0; }
+.tip h4 {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #333;
+}
+.tip p { font-size: 0.86rem; color: #666; line-height: 1.65; }
+
+/* ─── POPUP ───────────────────────────────────────── */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.popup.open { display: flex; }
+.popup-content {
+  position: relative;
+  background: #faf8f3;
+  border-top: 4px solid #6a8caf;
+  border-radius: 6px;
+  width: 90%;
+  max-width: 520px;
+  padding: 28px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.close {
+  position: absolute;
+  top: 14px; right: 18px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #bbb;
+  font-family: 'Courier Prime', monospace;
+  line-height: 1;
+}
+.close:hover { color: #1a1a1a; }
+
+/* ─── QUIZ STYLES ─────────────────────────────────── */
+.quiz-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.quiz-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6a8caf;
+}
+.quiz-progress {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.75rem;
+  color: #aaa;
+}
+.progress-bar-wrap {
+  width: 100%;
+  height: 4px;
+  background: #e5e2db;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: #6a8caf;
+  border-radius: 2px;
+  transition: width 0.35s ease;
+}
+.quiz-question {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  min-height: 52px;
+}
+.tf-wrap {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+.tf-wrap button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 3px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.12s;
+  border: none;
+}
+.choice-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  background: #faf8f3;
+  font-family: 'Questrial', sans-serif;
+  font-size: 0.88rem;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+}
+.choice-btn:hover:not(:disabled) { background: #ebe8e0; border-color: #6a8caf; }
+.choice-btn.correct { background: #d1fae5 !important; border-color: #059669 !important; color: #065f46; }
+.choice-btn.wrong   { background: #fee2e2 !important; border-color: #dc2626 !important; color: #991b1b; }
+.quiz-feedback {
+  margin-top: 12px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  min-height: 22px;
+}
+.results-icon  { font-size: 2.8rem; text-align: center; margin-bottom: 8px; }
+.results-title { text-align: center; font-size: 1.3rem; font-weight: 400; margin-bottom: 8px; }
+.results-score {
+  text-align: center;
+  font-family: 'Courier Prime', monospace;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #6a8caf;
+  margin-bottom: 8px;
+}
+.results-message {
+  text-align: center;
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.65;
+}
+.quiz-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.quiz-buttons button { min-width: 110px; }
+
+/* ─── TOOL BOX (password checker) ────────────────── */
+.tool-box {
+  background: #faf8f3;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+}
+.tool-box input[type="password"] {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-family: 'Questrial', sans-serif;
+  font-size: 0.9rem;
+  background: #fff;
+  outline: none;
+}
+.strength-bar {
+  height: 4px;
+  border-radius: 2px;
+  margin-top: 10px;
+  background: #e5e2db;
+  overflow: hidden;
+}
+.strength-bar > div {
+  height: 100%;
+  width: 0;
+  border-radius: 2px;
+  transition: width 0.3s, background 0.3s;
+}
+.tool-result {
+  margin-top: 10px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.82rem;
+}
+.tool-tips {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #888;
+  padding-left: 18px;
+  line-height: 1.9;
+}
+
+/* ─── JARGON DECODER ──────────────────────────────── */
+.jargon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.jargon-btn {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  padding: 7px 16px;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  background: #faf8f3;
+  color: #555;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.jargon-btn:hover {
+  background: #6a8caf;
+  border-color: #6a8caf;
+  color: #fff;
+}
+
+/* ─── FOOTER ──────────────────────────────────────── */
+footer {
+  background: #faf8f3;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  padding: 26px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.78rem;
+  color: #999;
+  letter-spacing: 0.05em;
+  margin-top: 70px;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 640px) {
+  header h1 { font-size: 1.9rem; }
+  .steps { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: 1fr; }
+  .tip { flex-direction: column; gap: 10px; }
+  nav a, nav .dropdown > .nav-link { font-size: 0.72rem; margin: 3px; padding: 5px 10px; }
+  nav .dropdown-menu { min-width: 150px; }
+  .popup-content { padding: 20px; }
+}
