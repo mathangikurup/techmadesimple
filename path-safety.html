@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Safety Path — Technology Made Simple</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Bridging Digital Awareness</div>
+  <h1>Technology <span>Made Simple</span></h1>
+  <div class="subline">friendly guides for every age — learn at your own pace.</div>
+</header>
+
+<nav>
+  <div class="nav-items">
+    <a href="index.html#about">About</a>
+    <a href="index.html#pathways">Get Started</a>
+    <div class="dropdown">
+      <a href="pathways.html">Pathways ▾</a>
+      <div class="dropdown-menu">
+        <a href="path-beginner.html">Beginner</a>
+        <a href="path-safety.html">Safety</a>
+        <a href="path-jobs.html">Jobs</a>
+        <a href="path-school.html">School</a>
+        <a href="path-ai.html">AI Literacy ✦</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="tools.html">Interactive Tools ▾</a>
+      <div class="dropdown-menu">
+        <a href="tool-password.html">Password Checker</a>
+        <a href="tool-jargon.html">Jargon Decoder</a>
+        <a href="tool-ai-game.html">Ai or Human?</a>
+        <a href="tool-quizzes.html">Knowledge Quizzes</a>
+      </div>
+    </div>
+    <a href="get-involved.html">Get Involved</a>
+  </div>
+</nav>
+
+
+<div class="page-intro">
+  <a href="index.html#pathways" class="back-link">← All Paths</a>
+  <div class="pathway-eyebrow">
+    <span class="pathway-icon-sm">🔒</span> Online Safety Path
+  </div>
+  <h2>I Want to Stay Safe Online</h2>
+  <p>You don't have to be a tech expert to protect yourself online — you just need to know what to watch for. These 5 lessons cover the most important safety habits, in plain language, with no jargon.</p>
+  <div class="path-goals">
+    <span class="path-goal">✓ Spot a scam before it's too late</span>
+    <span class="path-goal">✓ Create passwords that actually protect you</span>
+    <span class="path-goal">✓ Browse the web safely</span>
+    <span class="path-goal">✓ Know exactly what to do if something goes wrong</span>
+  </div>
+</div>
+
+<section>
+  <div class="lesson-list">
+
+    <div class="lesson-card" onclick="openLesson(0)">
+      <div class="lesson-number">01</div>
+      <div class="lesson-body">
+        <h3>How Scams Work — and How to Spot Them</h3>
+        <p>Scammers use email, text, and phone calls to trick people into giving away money or personal information. Learn the patterns they follow so you can recognise them instantly.</p>
+        <div class="lesson-meta">
+          <span>⏱ 7 min</span>
+          <span class="age-tag snr">All Ages</span>
+        </div>
+      </div>
+      <div class="lesson-arrow">→</div>
+    </div>
+
+    <div class="lesson-card" onclick="openLesson(1)">
+      <div class="lesson-number">02</div>
+      <div class="lesson-body">
+        <h3>Creating Strong Passwords</h3>
+        <p>Most people use passwords that are easy to guess. Learn what makes a password strong, how to remember it, and why using the same one everywhere is dangerous.</p>
+        <div class="lesson-meta">
+          <span>⏱ 6 min</span>
+          <span class="age-tag snr">All Ages</span>
+        </div>
+      </div>
+      <div class="lesson-arrow">→</div>
+    </div>
+
+    <div class="lesson-card" onclick="openLesson(2)">
+      <div class="lesson-number">03</div>
+      <div class="lesson-body">
+        <h3>Safe Browsing Habits</h3>
+        <p>Not every website is trustworthy. Learn how to check whether a site is safe, what warning signs to look for in links, and what to do when something looks suspicious.</p>
+        <div class="lesson-meta">
+          <span>⏱ 7 min</span>
+          <span class="age-tag snr">All Ages</span>
+        </div>
+      </div>
+      <div class="lesson-arrow">→</div>
+    </div>
+
+    <div class="lesson-card" onclick="openLesson(3)">
+      <div class="lesson-number">04</div>
+      <div class="lesson-body">
+        <h3>Protecting Your Personal Information</h3>
+        <p>Your name, address, phone number, and date of birth are valuable to scammers. Learn what's safe to share online, what to keep private, and how apps collect your data.</p>
+        <div class="lesson-meta">
+          <span>⏱ 8 min</span>
+          <span class="age-tag snr">All Ages</span>
+        </div>
+      </div>
+      <div class="lesson-arrow">→</div>
+    </div>
+
+    <div class="lesson-card" onclick="openLesson(4)">
+      <div class="lesson-number">05</div>
+      <div class="lesson-body">
+        <h3>What to Do If Something Goes Wrong</h3>
+        <p>Think you've been scammed? Clicked a bad link? This lesson walks you through exactly what to do — step by step — and who to contact for help.</p>
+        <div class="lesson-meta">
+          <span>⏱ 6 min</span>
+          <span class="age-tag snr">All Ages</span>
+        </div>
+      </div>
+      <div class="lesson-arrow">→</div>
+    </div>
+
+  </div>
+
+  <div class="tip">
+    <div>
+      <h4>Put it into practice</h4>
+      <p>After finishing this path, head to the <a href="tools.html">Interactive Tools</a> page to test your scam detection skills and check how strong your passwords are — both take less than 5 minutes.</p>
+    </div>
+  </div>
+
+  <div class="path-nav">
+    <span></span>
+    <a href="index.html#pathways" class="btn-outline">← Back to All Paths</a>
+  </div>
+</section>
+
+<!-- LESSON POPUP -->
+<div id="lessonPopup" class="popup">
+  <div class="popup-content large">
+    <div class="popup-header">
+      <button class="close" onclick="closeLesson()">&times;</button>
+      <div class="popup-eyebrow" id="lessonEyebrow"></div>
+      <h2 id="lessonTitle"></h2>
+    </div>
+    <div class="popup-body">
+      <iframe id="lessonVideo" frameborder="0" allowfullscreen></iframe>
+      <div class="popup-text">
+        <p id="lessonIntro"></p>
+        <div id="lessonSteps" class="lesson-steps"></div>
+      </div>
+    </div>
+    <div class="popup-footer">
+      <button class="btn-outline" onclick="closeLesson()">Close</button>
+      <button class="btn-primary" id="lessonNext" onclick="nextLesson()">Next Lesson →</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  made with ❤️ by the <strong>media &amp; technology club</strong> &nbsp;·&nbsp; free for everyone to use
+</footer>
+
+<script>
+const lessons = [
+  {
+    title: "How Scams Work — and How to Spot Them",
+    eyebrow: "Lesson 1 of 5 · Online Safety Path",
+    video: null,
+    intro: "Scammers don't look like criminals — they look like your bank, the IRS, or a delivery company. They use fear and urgency to make you act before you think. Once you know their tricks, they lose their power.",
+    steps: [
+      "<strong>Urgency</strong> is the biggest red flag. Phrases like 'act now', 'your account will be closed', or 'you have 24 hours' are designed to panic you into acting before you think.",
+      "<strong>Unexpected contact</strong>: if someone contacts you out of nowhere — by phone, text, or email — asking for personal information or money, be suspicious regardless of who they claim to be.",
+      "<strong>Check the sender's email address</strong> carefully. Scammers use addresses like 'support@paypa1-accounts.net' that look real but aren't. The real PayPal only emails from @paypal.com.",
+      "<strong>No legitimate company</strong> will ask you to pay using gift cards, wire transfer, or cryptocurrency. If someone does — it's a scam.",
+      "<strong>Never press on embedded links on suspicious websites. </strong> Instead, place your cursor over the link and hover to preview the link to make sure its safe before proceeding.",
+      "<strong>When in doubt, hang up or delete it</strong>. You can always call the company back using a number from their official website to check if the message was real.",
+      "Visit the <a href='tools.html'>Interactive Tools</a> page to try the Scam Email Simulation and test what you've just learned."
+    ]
+  },
+  {
+    title: "Creating Strong Passwords",
+    eyebrow: "Lesson 2 of 5 · Online Safety Path",
+    video: null,
+    intro: "A weak password is like leaving your front door unlocked. The good news: strong passwords don't have to be hard to remember if you use the right approach.",
+    steps: [
+      "A strong password is at least 10 characters long and includes a mix of uppercase letters, lowercase letters, numbers, and symbols (like ! or #).",
+      "Avoid obvious choices: your name, birthday, pet's name, or the word 'password'. These are the first things attackers try.",
+      "<strong>Use a passphrase</strong>: string together 4 random words like 'BlueSockRainCloud7!' — long, memorable, and very hard to guess.",
+      "<strong>Never reuse passwords</strong>. If one account is breached and you use the same password elsewhere, all your accounts are at risk.",
+      "Consider a <strong>password manager</strong> — a free app (like Bitwarden or Google Password Manager) that remembers all your passwords securely. You only need to remember one master password.",
+      "Turn on <strong>two-factor authentication (2FA)</strong> wherever possible. This sends a code to your phone as a second check — even if someone has your password, they can't get in."
+    ]
+  },
+  {
+    title: "Safe Browsing Habits",
+    eyebrow: "Lesson 3 of 5 · Online Safety Path",
+    video: null,
+    intro: "Not every website is what it appears to be. A few simple habits will protect you from fake websites, malicious downloads, and tracking.",
+    steps: [
+      "Look for <strong>HTTPS</strong> at the start of any web address (and a padlock icon in the address bar) before entering a password or payment details. HTTP (without the S) is not secure.",
+      "Be careful with <strong>links in emails and texts</strong>. Hover over a link (without clicking) to see the actual web address in the bottom of your browser. If it looks strange, don't click.",
+      "<strong>Fake websites</strong> often copy the look of real ones but have slightly wrong addresses — like 'amaz0n.com' or 'paypal-login.net'. Always double-check the address bar.",
+      "If a <strong>pop-up</strong> appears saying your computer has a virus and to call a number or download something — close it immediately. This is a scare tactic, not a real warning.",
+      "Keep your browser and apps <strong>up to date</strong>. Updates often fix security holes that attackers use to get into your device.",
+      "Use a browser extension like <strong>uBlock Origin</strong> (free) to block most ads and malicious scripts. Ask a tech-savvy friend or librarian to help you install it."
+    ]
+  },
+  {
+    title: "Protecting Your Personal Information",
+    eyebrow: "Lesson 4 of 5 · Online Safety Path",
+    video: null,
+    intro: "Your personal information — name, address, date of birth, phone number — is valuable. Scammers use it to steal your identity, open credit accounts in your name, or target you more convincingly.",
+    steps: [
+      "<strong>Think before you fill in a form.</strong> Does this website really need your date of birth and phone number to show you an article? If the request seems excessive, don't fill it in.",
+      "Your <strong>Social Security Number</strong> should almost never be shared online. Legitimate organisations will only ask for it in person, in secure official circumstances.",
+      "Check your <strong>privacy settings</strong> on social media. By default, many platforms share your posts, location, and personal details publicly. Set them to 'Friends only' or 'Private'.",
+      "Be cautious with <strong>free apps and quizzes</strong>. 'Which celebrity do you look like?' type quizzes often harvest your data. If you're not paying for a product, your data is usually the product.",
+      "Review which apps have access to your location, microphone, and camera. On your phone: Settings → Privacy → review each permission and remove access you don't remember granting.",
+      "You have the right to ask companies to <strong>delete your data</strong>. Look for an 'Unsubscribe' or 'Delete my account' option, or email their support team."
+    ]
+  },
+  {
+    title: "What to Do If Something Goes Wrong",
+    eyebrow: "Lesson 5 of 5 · Online Safety Path",
+    video: null,
+    intro: "Even careful people get caught out sometimes. What matters most is acting quickly. Here's exactly what to do if you think you've been scammed or your account has been compromised.",
+    steps: [
+      "<strong>Don't panic.</strong> Acting fast matters, but panicking leads to more mistakes. Take a breath and work through these steps.",
+      "If you <strong>clicked a suspicious link</strong>: don't enter any information on the page that opens. Close the browser tab. Run a virus scan using Windows Defender (built into Windows) or the antivirus you already have.",
+      "If you <strong>gave away your password</strong>: change it immediately on that account, and on any other account where you used the same password.",
+      "If you <strong>sent money or gave bank details</strong>: call your bank right away using the number on the back of your card. Ask them to flag the transaction. Time is critical.",
+      "If you <strong>gave away personal information</strong> (like your SSN): contact the FTC at reportfraud.ftc.gov. They can help you set up a fraud alert on your credit.",
+      "Tell someone you trust what happened. There is no shame in being targeted — scammers are professional criminals. Reporting it helps protect others too."
+    ]
+  }
+];
+
+let currentLesson = 0;
+
+function openLesson(index) {
+  currentLesson = index;
+  const l = lessons[index];
+  document.getElementById('lessonEyebrow').innerText = l.eyebrow;
+  document.getElementById('lessonTitle').innerText = l.title;
+  document.getElementById('lessonVideo').src = l.video ? 'https://www.youtube.com/embed/' + l.video : '';
+  document.getElementById('lessonIntro').innerText = l.intro;
+  document.getElementById('lessonSteps').innerHTML = l.steps.map((s, i) =>
+    `<div class="lesson-step"><span class="step-num">${i + 1}</span><p>${s}</p></div>`
+  ).join('');
+
+  const nextBtn = document.getElementById('lessonNext');
+  nextBtn.onclick = nextLesson;
+  if (index < lessons.length - 1) {
+    nextBtn.style.display = 'inline-block';
+    nextBtn.innerText = 'Next Lesson →';
+  } else {
+    nextBtn.innerText = 'Try the Quizzes →';
+    nextBtn.onclick = () => { window.location.href = 'tools.html'; };
+  }
+
+  document.getElementById('lessonPopup').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLesson() {
+  document.getElementById('lessonPopup').style.display = 'none';
+  document.getElementById('lessonVideo').src = '';
+  document.body.style.overflow = '';
+}
+
+function nextLesson() {
+  if (currentLesson < lessons.length - 1) openLesson(currentLesson + 1);
+}
+
+document.getElementById('lessonPopup').addEventListener('click', e => { if (e.target === e.currentTarget) closeLesson(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLesson(); });
+</script>
+
+</body>
+</html>
