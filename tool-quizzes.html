@@ -111,6 +111,37 @@
   </div>
 </section>
 
+<!-- QUIZ POPUP -->
+<div id="quizPopup" class="popup">
+  <div class="popup-content">
+    <button class="close" onclick="closeQuiz()">&times;</button>
+
+    <div id="quizInProgress">
+      <div class="quiz-meta">
+        <span id="quizTitle" class="quiz-label"></span>
+        <span id="quizProgress" class="quiz-progress"></span>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+      </div>
+      <p id="question" class="quiz-question"></p>
+      <div id="answerButtons"></div>
+      <p id="feedback" class="quiz-feedback"></p>
+    </div>
+
+    <div id="quizResults" style="display:none;">
+      <div class="results-icon" id="resultsIcon"></div>
+      <h2 class="results-title">Quiz Complete!</h2>
+      <p class="results-score" id="resultsScore"></p>
+      <p class="results-message" id="resultsMessage"></p>
+      <div class="quiz-buttons" style="margin-top:24px;">
+        <button class="btn-primary" onclick="retakeQuiz()">↺ Retake</button>
+        <button class="btn-outline" onclick="closeQuiz()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
 <footer>
   Technology Made Simple is student-led project. &nbsp;·&nbsp; free for everyone to use
 </footer>
