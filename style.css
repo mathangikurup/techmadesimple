@@ -1,42 +1,64 @@
+/* ── RESET ───────────────────────────────────────── */
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Base: 18 px so all rem values are generously sized */
+html { font-size: 18px; }
+
+/* Text selection highlight */
+::selection { background: #2255a4; color: #fff; }
 
 body {
   font-family: 'Questrial', sans-serif;
-  background: #f2ede3;
-  color: #111111;
+  background: #edf0fb;
+  color: #1a1d2e;
+  font-size: 1rem;
+  line-height: 1.9;
 }
 
 /* ── HEADER ──────────────────────────────────────── */
 header {
-  background: #fffdf8;
-  border-top: 5px solid #2c6e8a;
-  border-bottom: 1px solid #c8c0b0;
+  background: #ffffff;
+  border-top: 6px solid #2255a4;
+  border-bottom: 2px solid #b4bede;
   text-align: center;
-  padding: 44px 20px 38px;
+  padding: 48px 24px 40px;
 }
 header .eyebrow {
   font-family: 'Courier Prime', monospace;
-  font-size: 1.0rem;
-  letter-spacing: 0.2em;
+  font-size: 0.9rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #2c6e8a;
-  margin-bottom: 12px;
+  color: #634ea8;
+  margin-bottom: 14px;
 }
-header h1 { font-size: 2.9rem; letter-spacing: 0.01em; }
-header h1 span { color: #2c6e8a; }
+header h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.01em;
+  color: #1a1d2e;
+}
+header h1 span { color: #2255a4; }
 header .subline {
-  margin-top: 10px;
+  margin-top: 12px;
   font-family: 'Courier Prime', monospace;
-  font-size: 0.95rem;
-  color: #6a6255;
+  font-size: 0.9rem;
+  color: #5c6488;
+}
+header::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #2255a4, #634ea8);
+  margin: 20px auto 0;
+  border-radius: 2px;
 }
 
 /* ── NAV ─────────────────────────────────────────── */
 nav {
-  background: #fffdf8;
-  border-bottom: 1px solid #c8c0b0;
+  background: #ffffff;
+  border-bottom: 2px solid #b4bede;
   text-align: center;
-  padding: 10px;
+  padding: 10px 16px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -46,160 +68,250 @@ nav .nav-items {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 2px;
 }
 nav a,
 nav .dropdown > .nav-link {
   font-family: 'Courier Prime', monospace;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #2c2820;
+  color: #1a1d2e;
   text-decoration: none;
-  padding: 6px 14px;
-  margin: 0 4px;
-  border: 1px solid transparent;
+  padding: 8px 16px;
+  margin: 2px;
+  border: 1.5px solid transparent;
   border-radius: 4px;
-  display: inline-block;
   cursor: pointer;
   background: none;
   transition: all 0.15s;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 nav a:hover,
-nav .dropdown:hover > .nav-link { border-color: #2c6e8a; color: #2c6e8a; background: #edf4f8; }
+nav .dropdown:hover > .nav-link {
+  border-color: #2255a4;
+  color: #2255a4;
+  background: #dce8f8;
+}
 
 nav .dropdown { position: relative; display: inline-block; }
-nav .dropdown > .nav-link::after { content: ' ▾'; font-size: 0.65rem; opacity: 0.6; }
+nav .dropdown > .nav-link::after { content: ' ▾'; font-size: 0.8rem; opacity: 0.6; margin-left: 2px; }
 nav .dropdown-menu {
   display: none;
   position: absolute;
   top: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%);
-  background: #fffdf8;
-  border: 1px solid #c8c0b0;
+  background: #ffffff;
+  border: 1.5px solid #b4bede;
+  border-top: 3px solid #2255a4;
   border-radius: 4px;
-  min-width: 180px;
-  box-shadow: 2px 4px 12px rgba(0,0,0,0.10);
+  min-width: 200px;
+  box-shadow: 2px 4px 16px rgba(34,85,164,0.12);
   overflow: hidden;
   z-index: 200;
 }
 nav .dropdown:hover .dropdown-menu { display: block; }
 nav .dropdown-menu a {
-  display: block;
+  display: flex;
+  align-items: center;
   margin: 0;
-  padding: 9px 18px;
+  padding: 12px 20px;
   border: none;
   border-radius: 0;
-  font-size: 0.78rem;
-  color: #2c2820;
+  font-size: 0.85rem;
+  color: #1a1d2e;
   text-align: left;
-  border-bottom: 1px solid #e0d8ce;
+  border-bottom: 1px solid #dde2f0;
+  min-height: 44px;
 }
 nav .dropdown-menu a:last-child { border-bottom: none; }
-nav .dropdown-menu a:hover { background: #e8e0d4; color: #2c6e8a; border-color: transparent; }
+nav .dropdown-menu a:hover {
+  background: #dce8f8;
+  color: #2255a4;
+  border-color: transparent;
+}
 
 /* ── LAYOUT ──────────────────────────────────────── */
-.divider { border: none; border-top: 1px dashed #c0b8a8; }
+.divider {
+  border: none;
+  border-top: 2px solid #b4bede;
+}
 
 section {
   max-width: 1200px;
-  margin: 56px auto;
-  padding: 0 24px;
+  margin: 60px auto;
+  padding: 0 28px;
 }
-section h2 { font-size: 1.75rem; font-weight: 400; margin-bottom: 14px; }
-section p { font-size: 1.15rem; color: #3a3328; line-height: 1.8; }
-section p + p { margin-top: 10px; }
+section h2 {
+  font-size: 1.65rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: #1a1d2e;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed #b4bede;
+  display: inline-block;
+}
+section p {
+  font-size: 1.05rem;
+  color: #353a5a;
+  line-height: 1.9;
+}
+section p + p { margin-top: 12px; }
+
+section a, .tip a, .lesson-step a {
+  color: #2255a4;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+section a:hover, .tip a:hover { color: #634ea8; }
 
 .page-intro {
   max-width: 1200px;
-  margin: 48px auto 0;
-  padding: 0 24px 36px;
-  border-bottom: 1px dashed #c0b8a8;
+  margin: 52px auto 0;
+  padding: 0 28px 40px;
+  border-bottom: 2px dashed #b4bede;
 }
-.page-intro h2 { font-size: 1.6rem; font-weight: 400; margin-bottom: 10px; }
-.page-intro p { font-size: 0.95rem; color: #4a4035; line-height: 1.8; }
+.page-intro h2 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: #1a1d2e;
+  border: none;
+  padding: 0;
+  display: block;
+}
+.page-intro p {
+  font-size: 1rem;
+  color: #353a5a;
+  line-height: 1.9;
+}
 
 /* ── AGE TAGS ────────────────────────────────────── */
 .age-tag {
   display: inline-block;
   font-family: 'Courier Prime', monospace;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 5px 13px;
+  padding: 6px 14px;
   border-radius: 4px;
   margin-bottom: 10px;
-  font-weight: 600;
+  font-weight: 700;
+  line-height: 1;
 }
-/* Improved contrast on all three tags (all exceed 4.5:1) */
-.kids  { background: #fef0cc; color: #7a4800; border: 1px solid #e8c97a; }
-.teens { background: #d4eaf7; color: #0d3d5c; border: 1px solid #8bbcd4; }
-.snr   { background: #e4dff7; color: #3a1f6e; border: 1px solid #9d8fd4; }
+.kids  { background: #fef3cd; color: #7a4800; border: 1.5px solid #e8c97a; }
+.teens { background: #dce8f8; color: #1a3a6b; border: 1.5px solid #8aadd8; }
+.snr   { background: #ede8f9; color: #3a1f78; border: 1.5px solid #a090d4; }
 
 /* ── STEP GRID ───────────────────────────────────── */
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
-.step { background: #fffdf8; border: 1.5px solid #c8c0b0; border-radius: 6px; padding: 20px; }
-.step h3 { font-family: 'Courier Prime', monospace; font-size: 1.0rem; font-weight: 700; margin-bottom: 7px; color: #1a1a1a; }
-.step p { font-size: 1.0rem; color: #4a4035; }
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 32px;
+}
+.step {
+  background: #ffffff;
+  border: 2px solid #b4bede;
+  border-top: 4px solid #2255a4;
+  border-radius: 6px;
+  padding: 24px;
+}
+.step h3 {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 9px;
+  color: #1a1d2e;
+}
+.step p { font-size: 1rem; color: #353a5a; }
 
 /* ── CARDS ───────────────────────────────────────── */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 18px;
-  margin-top: 22px;
+  gap: 20px;
+  margin-top: 24px;
 }
-.card { background: #fffdf8; border: 1.5px solid #c8c0b0; border-radius: 6px; overflow: hidden; transition: box-shadow 0.2s; }
-.card:hover { box-shadow: 4px 4px 0 #2c6e8a; }
+.card {
+  background: #ffffff;
+  border: 2px solid #b4bede;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.card:hover { box-shadow: 4px 4px 0 #2255a4; border-color: #2255a4; }
 
-.card-media { width: 100%; height: 175px; overflow: hidden; cursor: pointer; background: #b8cede; }
+.card-media { width: 100%; height: 175px; overflow: hidden; cursor: pointer; background: #c8d8f0; }
 .card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s; }
 .card:hover .card-media img { transform: scale(1.05); }
 
-.card-body { padding: 16px; }
-.card-body h3 { font-size: 1.2rem; font-weight: 500; margin-bottom: 6px; color: #111; }
-.card-body p { font-size: 1.0rem; color: #4a4035; line-height: 1.6; margin-bottom: 14px; }
-.card-body .links { display: flex; gap: 8px; }
+.card-body { padding: 18px; }
+.card-body h3 { font-size: 1.1rem; font-weight: 500; margin-bottom: 8px; color: #1a1d2e; }
+.card-body p { font-size: 1rem; color: #353a5a; line-height: 1.75; margin-bottom: 16px; }
+.card-body .links { display: flex; gap: 10px; }
 
 /* ── BUTTONS ─────────────────────────────────────── */
 .btn-primary,
 a.primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   text-decoration: none;
   font-family: 'Courier Prime', monospace;
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
   letter-spacing: 0.05em;
-  padding: 9px 16px;
+  padding: 12px 22px;
   border-radius: 4px;
-  border: none;
+  border: 2px solid transparent;
   cursor: pointer;
-  background: #2c6e8a;
+  background: #2255a4;
   color: #ffffff;
-  transition: background 0.15s;
+  transition: background 0.15s, box-shadow 0.15s;
+  min-height: 48px;
+  line-height: 1.2;
 }
-.btn-primary:hover, a.primary:hover { background: #215470; }
+.btn-primary:hover, a.primary:hover {
+  background: #1a4085;
+  box-shadow: 2px 2px 0 #1a1d2e;
+}
 
 .btn-outline,
 a.outline {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   text-decoration: none;
   font-family: 'Courier Prime', monospace;
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   letter-spacing: 0.05em;
-  padding: 9px 16px;
+  padding: 12px 22px;
   border-radius: 4px;
-  border: 1.5px solid #888070;
+  border: 2px solid #7080aa;
   cursor: pointer;
-  color: #2c2820;
+  color: #1a1d2e;
   background: none;
-  transition: background 0.15s;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  min-height: 48px;
+  line-height: 1.2;
 }
-.btn-outline:hover, a.outline:hover { background: #e8e0d4; }
+.btn-outline:hover, a.outline:hover {
+  background: #dce8f8;
+  border-color: #2255a4;
+  color: #2255a4;
+}
 
-/* Stretch buttons to fill .links row */
+.btn-primary:focus, .btn-outline:focus, a:focus {
+  outline: 3px solid #634ea8;
+  outline-offset: 3px;
+}
+
 .links .btn-primary,
 .links .btn-outline,
 .links a.primary,
@@ -207,89 +319,75 @@ a.outline {
 
 /* ── TIP BOX ─────────────────────────────────────── */
 .tip {
-  background: #fffdf8;
-  border: 1.5px solid #c8c0b0;
-  border-left: 4px solid #2c6e8a;
+  background: #ffffff;
+  border: 2px solid #b4bede;
+  border-left: 5px solid #2255a4;
   border-radius: 4px;
-  padding: 20px 24px;
-  margin-top: 22px;
+  padding: 22px 26px;
+  margin-top: 24px;
   display: flex;
-  gap: 14px;
+  gap: 16px;
   align-items: flex-start;
 }
-.tip .icon { font-size: 1.3rem; flex-shrink: 0; }
-.tip h4 { font-family: 'Courier Prime', monospace; font-size: 1.0rem; font-weight: 700; margin-bottom: 4px; color: #111; }
-.tip p { font-size: 0.95rem; color: #3a3328; line-height: 1.65; }
+.tip .icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1.4; }
+.tip h4 { font-family: 'Courier Prime', monospace; font-size: 1rem; font-weight: 700; margin-bottom: 5px; color: #1a1d2e; }
+.tip p { font-size: 1rem; color: #353a5a; line-height: 1.8; }
 
 /* ── PATHWAY CARDS (index.html) ──────────────────── */
-.pathways { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; margin-top: 28px; }
+.pathways {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
 .pathway-card {
-  background: #fffdf8;
-  border: 1.5px solid #c8c0b0;
-  border-top: 4px solid #2c6e8a;
+  background: #ffffff;
+  border: 2px solid #b4bede;
+  border-top: 5px solid #2255a4;
   border-radius: 6px;
-  padding: 22px;
+  padding: 24px;
   text-decoration: none;
   color: inherit;
   display: block;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, border-color 0.2s;
 }
-.pathway-card:hover { box-shadow: 4px 4px 0 #2c6e8a; }
-.pathway-card .pathway-icon { font-size: 1.6rem; margin-bottom: 10px; }
-.pathway-card h3 { font-size: 1.5rem; font-weight: 400; margin-bottom: 6px; color: #111; }
-.pathway-card p { font-size: 0.95rem; color: #4a4035; line-height: 1.6; margin-bottom: 14px; }
+.pathway-card:hover { box-shadow: 4px 4px 0 #2255a4; border-color: #2255a4; }
+.pathway-card .pathway-icon { font-size: 1.8rem; margin-bottom: 12px; }
+.pathway-card h3 { font-size: 1.3rem; font-weight: 400; margin-bottom: 8px; color: #1a1d2e; }
+.pathway-card p { font-size: 1rem; color: #353a5a; line-height: 1.75; margin-bottom: 16px; }
 .pathway-card .pathway-meta {
   font-family: 'Courier Prime', monospace;
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   letter-spacing: 0.08em;
-  color: #2c6e8a;
+  color: #2255a4;
+  font-weight: 700;
 }
 
-/* ── PATHWAY FULL CARDS (pathways.html) ──────────── */
+/* ── PATHWAY FULL CARDS ──────────────────────────── */
 .pathway-full-card {
-  background: #fffdf8;
-  border: 1.5px solid #c8c0b0;
-  border-left: 4px solid #2c6e8a;
+  background: #ffffff;
+  border: 2px solid #b4bede;
+  border-left: 5px solid #2255a4;
   border-radius: 4px;
-  padding: 28px;
-  margin-bottom: 20px;
+  padding: 30px;
+  margin-bottom: 22px;
 }
-.pfc-top { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 20px; }
+.pfc-top { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 22px; }
 .pfc-icon { font-size: 2rem; flex-shrink: 0; line-height: 1; padding-top: 4px; }
 .pfc-header { flex: 1; }
-.pfc-meta {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  color: #2c6e8a;
-  margin-bottom: 6px;
-}
-.pfc-header h2 { font-size: 1.25rem; font-weight: 500; margin-bottom: 8px; color: #111; }
-.pfc-header p { font-size: 0.9rem; color: #4a4035; line-height: 1.7; }
-.pfc-lessons {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 22px;
-  padding: 0;
-}
-.pfc-lessons li {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.95rem;
-  color: #2c2820;
-  background: #e8e0d4;
-  padding: 4px 12px;
-  border-radius: 3px;
-}
-.pfc-footer { display: flex; gap: 10px; flex-wrap: wrap; }
+.pfc-meta { font-family: 'Courier Prime', monospace; font-size: 0.82rem; letter-spacing: 0.1em; color: #2255a4; font-weight: 700; margin-bottom: 8px; }
+.pfc-header h2 { font-size: 1.2rem; font-weight: 500; margin-bottom: 9px; color: #1a1d2e; border: none; padding: 0; display: block; }
+.pfc-header p { font-size: 0.9rem; color: #353a5a; line-height: 1.75; }
+.pfc-lessons { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; padding: 0; }
+.pfc-lessons li { font-family: 'Courier Prime', monospace; font-size: 0.9rem; color: #1a1d2e; background: #dce8f8; border: 1px solid #b4bede; padding: 5px 14px; border-radius: 3px; }
+.pfc-footer { display: flex; gap: 12px; flex-wrap: wrap; }
 
 /* ── POPUP ───────────────────────────────────────── */
 .popup {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: rgba(20,22,46,0.72);
   z-index: 1000;
   align-items: center;
   justify-content: center;
@@ -297,281 +395,265 @@ a.outline {
 }
 .popup-content {
   position: relative;
-  background: #fffdf8;
-  border-top: 5px solid #2c6e8a;
+  background: #ffffff;
+  border-top: 5px solid #2255a4;
   border-radius: 6px;
   width: 90%;
-  max-width: 520px;
-  padding: 28px;
+  max-width: 540px;
+  padding: 30px;
   margin: 40px auto;
 }
-/* Wide variant for video guides */
-.popup-content.large {
-  max-width: 860px;
-  padding: 0;
-  overflow: hidden;
-}
-.popup-header { padding: 24px 28px 20px; border-bottom: 1px solid #c8c0b0; position: relative; }
-.popup-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: #2c6e8a; margin-bottom: 6px; }
-.popup-content h2 { font-size: 1.4rem; font-weight: 400; color: #111; }
-.popup-body { padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 20px; }
-.popup-body iframe { width: 100%; height: 320px; border: none; border-radius: 4px; }
-.popup-image img { width: 100%; border-radius: 4px; border: 1px solid #c8c0b0; display: block; }
-.popup-text p { font-size: 0.93rem; line-height: 1.75; color: #3a3328; }
-.popup-footer { border-top: 1px dashed #c0b8a8; padding: 14px 28px; display: flex; justify-content: flex-end; }
+.popup-content.large { max-width: 880px; padding: 0; overflow: hidden; }
+.popup-header { padding: 26px 32px 22px; border-bottom: 1.5px solid #b4bede; position: relative; background: #f4f6fd; }
+.popup-eyebrow { font-family: 'Courier Prime', monospace; font-size: 0.82rem; letter-spacing: 0.2em; text-transform: uppercase; color: #634ea8; margin-bottom: 7px; font-weight: 700; }
+.popup-content h2 { font-size: 1.35rem; font-weight: 400; color: #1a1d2e; }
+.popup-body { padding: 26px 32px 30px; display: flex; flex-direction: column; gap: 22px; }
+.popup-body iframe { width: 100%; height: 340px; border: none; border-radius: 4px; }
+.popup-image img { width: 100%; border-radius: 4px; border: 1.5px solid #b4bede; display: block; }
+.popup-text p { font-size: 1rem; line-height: 1.85; color: #353a5a; }
+.popup-footer { border-top: 1px dashed #b4bede; padding: 16px 32px; display: flex; justify-content: flex-end; gap: 10px; background: #f4f6fd; }
 
 .close {
   position: absolute;
-  top: 14px; right: 18px;
-  font-size: 1.3rem;
+  top: 12px; right: 14px;
+  font-size: 1.6rem;
   cursor: pointer;
-  color: #888;
+  color: #7080aa;
   font-family: 'Courier Prime', monospace;
   line-height: 1;
   background: none;
   border: none;
+  width: 44px; height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
 }
-.close:hover { color: #111; }
+.close:hover { color: #2255a4; background: #dce8f8; }
 
 /* ── QUIZ ────────────────────────────────────────── */
-.quiz-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.quiz-label { font-family: 'Courier Prime', monospace; font-size: 0.95rem; letter-spacing: 0.12em; text-transform: uppercase; color: #2c6e8a; }
-.quiz-progress { font-family: 'Courier Prime', monospace; font-size: 0.75rem; color: #6a6255; }
+.quiz-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.quiz-label { font-family: 'Courier Prime', monospace; font-size: 0.95rem; letter-spacing: 0.12em; text-transform: uppercase; color: #2255a4; font-weight: 700; }
+.quiz-progress { font-family: 'Courier Prime', monospace; font-size: 0.88rem; color: #5c6488; }
 
-.progress-bar-wrap { height: 6px; background: #d8d0c4; border-radius: 3px; margin-bottom: 20px; overflow: hidden; }
-.progress-bar-fill { height: 100%; background: #2c6e8a; border-radius: 3px; transition: width 0.35s ease; }
+.progress-bar-wrap { height: 8px; background: #dde2f0; border-radius: 4px; margin-bottom: 22px; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: linear-gradient(90deg, #2255a4, #634ea8); border-radius: 4px; transition: width 0.35s ease; }
 
-.quiz-question { font-size: 1rem; line-height: 1.65; color: #111; margin-bottom: 16px; min-height: 52px; }
+.quiz-question { font-size: 1.05rem; line-height: 1.75; color: #1a1d2e; margin-bottom: 20px; min-height: 52px; }
 
-.tf-wrap { display: flex; gap: 12px; margin-bottom: 4px; }
-.tf-wrap button { flex: 1; padding: 10px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 0.82rem; cursor: pointer; border: 1.5px solid #c8c0b0; transition: background 0.12s; }
+.tf-wrap { display: flex; gap: 14px; margin-bottom: 6px; }
+.tf-wrap button { flex: 1; padding: 12px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 0.9rem; cursor: pointer; border: 2px solid #b4bede; background: #f4f6fd; color: #1a1d2e; min-height: 48px; transition: background 0.12s, border-color 0.12s; }
+.tf-wrap button:hover { background: #dce8f8; border-color: #2255a4; }
 
 .choice-btn {
   display: block; width: 100%; text-align: left;
-  padding: 11px 14px; margin-bottom: 8px;
-  border-radius: 4px; border: 1.5px solid #c8c0b0;
-  background: #fffdf8; font-family: 'Questrial', sans-serif;
-  font-size: 0.95rem; color: #1a1a1a; cursor: pointer;
+  padding: 13px 18px; margin-bottom: 10px;
+  border-radius: 4px; border: 2px solid #b4bede;
+  background: #f4f6fd; font-family: 'Questrial', sans-serif;
+  font-size: 1rem; color: #1a1d2e; cursor: pointer;
+  min-height: 52px; line-height: 1.5;
   transition: background 0.12s, border-color 0.12s;
 }
-.choice-btn:hover:not(:disabled) { background: #e8e0d4; border-color: #2c6e8a; }
-.choice-btn.correct { background: #c8f0d8 !important; border-color: #1a7a40 !important; color: #0a3d20; }
+.choice-btn:hover:not(:disabled) { background: #dce8f8; border-color: #2255a4; }
+.choice-btn.correct { background: #d4f0e4 !important; border-color: #1a7a40 !important; color: #0a3d20; }
 .choice-btn.wrong   { background: #fcd8d8 !important; border-color: #c0282a !important; color: #6a0f10; }
 
-.quiz-feedback { margin-top: 12px; font-family: 'Courier Prime', monospace; font-size: 0.8rem; line-height: 1.55; min-height: 22px; color: #2c2820; }
+.quiz-feedback { margin-top: 14px; font-family: 'Courier Prime', monospace; font-size: 0.9rem; line-height: 1.6; min-height: 24px; color: #1a1d2e; }
 
-.results-icon  { font-size: 2.8rem; text-align: center; margin-bottom: 8px; }
-.results-title { text-align: center; font-size: 1.3rem; font-weight: 400; margin-bottom: 8px; color: #111; }
-.results-score { text-align: center; font-family: 'Courier Prime', monospace; font-size: 2.2rem; font-weight: 700; color: #2c6e8a; margin-bottom: 8px; }
-.results-message { text-align: center; font-size: 0.88rem; color: #4a4035; line-height: 1.65; }
-.quiz-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-.quiz-buttons button { min-width: 110px; }
+.results-icon  { font-size: 3rem; text-align: center; margin-bottom: 10px; }
+.results-title { text-align: center; font-size: 1.35rem; font-weight: 400; margin-bottom: 10px; color: #1a1d2e; }
+.results-score { text-align: center; font-family: 'Courier Prime', monospace; font-size: 2.4rem; font-weight: 700; color: #2255a4; margin-bottom: 10px; }
+.results-message { text-align: center; font-size: 1rem; color: #353a5a; line-height: 1.75; }
+.quiz-buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+.quiz-buttons button { min-width: 120px; }
 
 /* ── TOOLS ───────────────────────────────────────── */
-.tool-box { background: #fffdf8; border: 1.5px solid #c8c0b0; border-radius: 6px; padding: 20px; margin-top: 22px; }
-.tool-box input[type="password"] {
-  width: 100%; padding: 9px 10px;
-  border: 1.5px solid #aaa098; border-radius: 4px;
-  font-family: 'Questrial', sans-serif; font-size: 0.9rem;
-  background: #fff; outline: none; color: #111;
+.tool-box {
+  background: #ffffff;
+  border: 2px solid #b4bede;
+  border-radius: 6px;
+  padding: 24px;
+  margin-top: 24px;
 }
-.strength-bar { height: 6px; border-radius: 3px; margin-top: 10px; background: #d8d0c4; overflow: hidden; }
-.strength-bar > div { height: 100%; width: 0; border-radius: 3px; transition: width 0.3s, background 0.3s; }
-.tool-result { margin-top: 10px; font-family: 'Courier Prime', monospace; font-size: 0.82rem; color: #2c2820; }
-.tool-tips { margin-top: 8px; font-size: 0.85rem; color: #5a5248; padding-left: 18px; line-height: 1.9; }
+.tool-box input[type="password"],
+.tool-box input[type="text"] {
+  width: 100%; padding: 12px 14px;
+  border: 2px solid #7080aa; border-radius: 4px;
+  font-family: 'Questrial', sans-serif; font-size: 1rem;
+  background: #f4f6fd; outline: none; color: #1a1d2e;
+  min-height: 50px;
+  transition: border-color 0.15s;
+}
+.tool-box input:focus { border-color: #2255a4; }
+.strength-bar { height: 8px; border-radius: 4px; margin-top: 14px; background: #dde2f0; overflow: hidden; }
+.strength-bar > div { height: 100%; width: 0; border-radius: 4px; transition: width 0.3s, background 0.3s; }
+.tool-result { margin-top: 12px; font-family: 'Courier Prime', monospace; font-size: 0.9rem; color: #1a1d2e; }
+.tool-tips { margin-top: 10px; font-size: 0.9rem; color: #353a5a; padding-left: 20px; line-height: 2; }
 
-.jargon-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.jargon-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
 .jargon-btn {
-  font-family: 'Courier Prime', monospace; font-size: 0.78rem; letter-spacing: 0.06em;
-  padding: 8px 18px; border: 1.5px solid #aaa098; border-radius: 4px;
-  background: #fffdf8; color: #2c2820; cursor: pointer;
+  font-family: 'Courier Prime', monospace; font-size: 0.88rem; letter-spacing: 0.05em;
+  padding: 10px 20px; border: 2px solid #7080aa; border-radius: 4px;
+  background: #f4f6fd; color: #1a1d2e; cursor: pointer; min-height: 44px;
   transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
-.jargon-btn:hover { background: #2c6e8a; border-color: #2c6e8a; color: #fff; }
+.jargon-btn:hover { background: #2255a4; border-color: #2255a4; color: #fff; }
+.jargon-btn.active { background: #2255a4; border-color: #2255a4; color: #fff; }
 
 /* Scam email simulation */
 .scam-email {
-  background: #fff;
-  border: 1.5px solid #c8c0b0;
+  background: #ffffff;
+  border: 2px solid #b4bede;
   border-radius: 6px;
-  padding: 20px 24px;
-  margin-top: 22px;
-  font-size: 1.0rem;
-  line-height: 1.7;
-  color: #111;
+  padding: 24px 28px;
+  margin-top: 24px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #1a1d2e;
 }
-.scam-email .email-header { margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #e0d8ce; }
-.scam-email .email-field { font-family: 'Courier Prime', monospace; font-size: 0.78rem; color: #6a6255; margin-bottom: 3px; }
-.scam-email .email-field span { color: #1a1a1a; }
-.scam-email .email-subject { font-size: 1rem; font-weight: 500; margin-top: 8px; color: #111; }
-.scam-clue {
-  border-bottom: 2px dashed transparent;
-  cursor: pointer;
-  transition: border-color 0.15s;
-}
-.scam-clue:hover { border-color: #2c6e8a; }
-.scam-clue.revealed { background: #fef0cc; border-color: #c88a00; border-radius: 2px; padding: 0 2px; }
-.scam-nav { display: flex; align-items: center; gap: 14px; margin-top: 18px; flex-wrap: wrap; }
-.scam-counter { font-family: 'Courier Prime', monospace; font-size: 0.95rem; color: #6a6255; }
-.scam-verdict {
-  margin-top: 14px;
-  padding: 14px 18px;
-  border-radius: 4px;
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.82rem;
-  display: none;
-}
-.scam-verdict.is-scam { background: #fcd8d8; border: 1px solid #e88a8a; color: #6a0f10; }
-.scam-verdict.is-safe { background: #c8f0d8; border: 1px solid #5abf80; color: #0a3d20; }
+.scam-email .email-header { margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1.5px solid #dde2f0; }
+.scam-email .email-field { font-family: 'Courier Prime', monospace; font-size: 0.9rem; color: #5c6488; margin-bottom: 4px; }
+.scam-email .email-field span { color: #1a1d2e; font-weight: 700; }
+.scam-email .email-subject { font-size: 1.05rem; font-weight: 600; margin-top: 10px; color: #1a1d2e; }
+.scam-clue { border-bottom: 2px dashed transparent; cursor: pointer; transition: border-color 0.15s; }
+.scam-clue:hover { border-color: #2255a4; }
+.scam-clue.revealed { background: #fef3cd; border-color: #c88a00; border-radius: 2px; padding: 0 2px; }
+.scam-nav { display: flex; align-items: center; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
+.scam-counter { font-family: 'Courier Prime', monospace; font-size: 0.9rem; color: #5c6488; }
+.scam-verdict { margin-top: 16px; padding: 16px 20px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 0.9rem; display: none; line-height: 1.65; }
+.scam-verdict.is-scam { background: #fcd8d8; border: 2px solid #e88a8a; color: #6a0f10; }
+.scam-verdict.is-safe { background: #d4f0e4; border: 2px solid #5abf80; color: #0a3d20; }
 
 /* ── PATHWAY PAGES ───────────────────────────────── */
 .back-link {
   display: inline-block;
   font-family: 'Courier Prime', monospace;
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   letter-spacing: 0.06em;
-  color: #2c6e8a;
-  text-decoration: none;
-  margin-bottom: 16px;
+  color: #2255a4;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-bottom: 18px;
 }
-.back-link:hover { text-decoration: underline; }
+.back-link:hover { color: #634ea8; }
 
 .pathway-eyebrow {
   font-family: 'Courier Prime', monospace;
   font-size: 0.95rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #2c6e8a;
-  margin-bottom: 8px;
+  color: #634ea8;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
-  gap: 6px;
-}
-.pathway-icon-sm { font-size: 1rem; }
-
-.path-goals {
-  display: flex;
-  flex-wrap: wrap;
   gap: 8px;
-  margin-top: 18px;
+  font-weight: 700;
 }
+.pathway-icon-sm { font-size: 1.1rem; }
+
+.path-goals { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 .path-goal {
   font-family: 'Courier Prime', monospace;
-  font-size: 0.95rem;
-  color: #2c2820;
-  background: #fffdf8;
-  border: 1.5px solid #c8c0b0;
+  font-size: 0.9rem;
+  color: #1a1d2e;
+  background: #ffffff;
+  border: 2px solid #b4bede;
   border-radius: 4px;
-  padding: 5px 12px;
+  padding: 7px 14px;
 }
 
-.lesson-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 28px;
-}
+.lesson-list { display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
 .lesson-card {
-  background: #fffdf8;
-  border: 1.5px solid #c8c0b0;
+  background: #ffffff;
+  border: 2px solid #b4bede;
   border-radius: 6px;
-  padding: 18px 20px;
+  padding: 20px 24px;
   display: flex;
   align-items: flex-start;
-  gap: 18px;
+  gap: 20px;
   cursor: pointer;
   transition: box-shadow 0.2s, border-color 0.2s;
 }
-.lesson-card:hover { box-shadow: 4px 4px 0 #2c6e8a; border-color: #2c6e8a; }
+.lesson-card:hover { box-shadow: 4px 4px 0 #2255a4; border-color: #2255a4; }
 
-.lesson-number {
-  font-family: 'Courier Prime', monospace;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #b8cede;
-  flex-shrink: 0;
-  width: 36px;
-  line-height: 1;
-  padding-top: 2px;
-}
-.lesson-card:hover .lesson-number { color: #2c6e8a; }
+.lesson-number { font-family: 'Courier Prime', monospace; font-size: 1.5rem; font-weight: 700; color: #c0caec; flex-shrink: 0; width: 40px; line-height: 1; padding-top: 3px; }
+.lesson-card:hover .lesson-number { color: #2255a4; }
 
 .lesson-body { flex: 1; }
-.lesson-body h3 { font-size: 1.2rem; font-weight: 500; margin-bottom: 5px; color: #111; }
-.lesson-body p { font-size: 1.0rem; color: #4a4035; line-height: 1.6; margin-bottom: 10px; }
+.lesson-body h3 { font-size: 1.15rem; font-weight: 500; margin-bottom: 7px; color: #1a1d2e; }
+.lesson-body p { font-size: 1rem; color: #353a5a; line-height: 1.75; margin-bottom: 12px; }
 
-.lesson-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.75rem;
-  color: #6a6255;
-}
+.lesson-meta { display: flex; align-items: center; gap: 12px; font-family: 'Courier Prime', monospace; font-size: 0.85rem; color: #5c6488; }
 .lesson-meta .age-tag { margin-bottom: 0; }
 
-.lesson-arrow {
-  font-size: 1.1rem;
-  color: #aaa098;
-  flex-shrink: 0;
-  align-self: center;
-  transition: color 0.15s, transform 0.15s;
-}
-.lesson-card:hover .lesson-arrow { color: #2c6e8a; transform: translateX(3px); }
+.lesson-arrow { font-size: 1.2rem; color: #9aaad0; flex-shrink: 0; align-self: center; transition: color 0.15s, transform 0.15s; }
+.lesson-card:hover .lesson-arrow { color: #2255a4; transform: translateX(4px); }
 
-/* Steps inside lesson popup */
-.lesson-steps { margin-top: 16px; display: flex; flex-direction: column; gap: 12px; }
-.lesson-step {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
+.lesson-steps { margin-top: 18px; display: flex; flex-direction: column; gap: 14px; }
+.lesson-step { display: flex; gap: 14px; align-items: flex-start; }
 .step-num {
   font-family: 'Courier Prime', monospace;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #fff;
-  background: #2c6e8a;
+  background: #2255a4;
   border-radius: 50%;
-  width: 22px;
-  height: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 2px;
+  width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
 }
-.lesson-step p { font-size: 0.9rem; line-height: 1.65; color: #2c2820; margin: 0; }
-.lesson-step p a { color: #2c6e8a; text-decoration: underline; }
+.lesson-step p { font-size: 1rem; line-height: 1.8; color: #1a1d2e; margin: 0; }
+.lesson-step p a { color: #2255a4; text-decoration: underline; }
+.lesson-step p strong { color: #1a1d2e; }
 
-.path-nav {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 36px;
-}
+.path-nav { display: flex; justify-content: flex-end; margin-top: 40px; }
 
 /* ── FOOTER ──────────────────────────────────────── */
 footer {
-  background: #fffdf8;
-  border-top: 1px solid #c8c0b0;
+  background: #ffffff;
+  border-top: 2px solid #b4bede;
   text-align: center;
-  padding: 26px;
+  padding: 30px;
   font-family: 'Courier Prime', monospace;
-  font-size: 0.78rem;
-  color: #6a6255;
+  font-size: 0.88rem;
+  color: #5c6488;
   letter-spacing: 0.05em;
-  margin-top: 70px;
+  margin-top: 80px;
+}
+
+/* ── PRINT STYLES ────────────────────────────────── */
+@media print {
+  nav, footer, .back-link, .path-nav, .popup,
+  .btn-primary, .btn-outline, header::after { display: none !important; }
+  body { background: #fff; color: #000; font-size: 12pt; }
+  header { border: none; padding: 0 0 16px; }
+  header h1 { font-size: 22pt; }
+  section, .page-intro { margin: 20px 0; padding: 0; }
+  .lesson-card { cursor: default; border: 1pt solid #ccc; break-inside: avoid; }
 }
 
 /* ── RESPONSIVE ──────────────────────────────────── */
-@media (max-width: 640px) {
+@media (max-width: 700px) {
+  html { font-size: 16px; }
   header h1 { font-size: 1.9rem; }
+  header .eyebrow { font-size: 0.8rem; }
   .steps, .pathways { grid-template-columns: 1fr; }
   .cards { grid-template-columns: 1fr; }
-  .tip { flex-direction: column; gap: 10px; }
-  nav a, nav .dropdown > .nav-link { font-size: 0.72rem; margin: 3px; padding: 5px 10px; }
-  nav .dropdown-menu { min-width: 150px; }
-  .popup-content { padding: 20px; }
-  .popup-header, .popup-body, .popup-footer { padding-left: 18px; padding-right: 18px; }
-  .popup-body iframe { height: 220px; }
+  .tip { flex-direction: column; gap: 12px; }
+  nav a, nav .dropdown > .nav-link { font-size: 0.78rem; padding: 8px 10px; }
+  nav .dropdown-menu { min-width: 170px; }
+  .popup-content { padding: 22px; }
+  .popup-header, .popup-body, .popup-footer { padding-left: 20px; padding-right: 20px; }
+  .popup-body iframe { height: 240px; }
+  .lesson-card { gap: 14px; padding: 16px; }
+  .lesson-number { font-size: 1.2rem; width: 30px; }
+  .choice-btn { font-size: 0.95rem; }
+  .btn-primary, .btn-outline { font-size: 0.9rem; padding: 11px 18px; }
+}
+
+@media (max-width: 400px) {
+  html { font-size: 15px; }
+  header h1 { font-size: 1.7rem; }
+  .tf-wrap { flex-direction: column; }
+  .scam-nav { flex-direction: column; align-items: stretch; }
 }
