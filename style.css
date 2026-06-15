@@ -490,15 +490,6 @@ a.outline {
 .tool-result { margin-top: 12px; font-family: 'Courier Prime', monospace; font-size: 0.9rem; color: #1a1d2e; }
 .tool-tips { margin-top: 10px; font-size: 0.9rem; color: #353a5a; padding-left: 20px; line-height: 2; }
 
-.jargon-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-.jargon-btn {
-  font-family: 'Courier Prime', monospace; font-size: 0.88rem; letter-spacing: 0.05em;
-  padding: 10px 20px; border: 2px solid #7080aa; border-radius: 4px;
-  background: #f4f6fd; color: #1a1d2e; cursor: pointer; min-height: 44px;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
-}
-.jargon-btn:hover { background: #2255a4; border-color: #2255a4; color: #fff; }
-.jargon-btn.active { background: #2255a4; border-color: #2255a4; color: #fff; }
 
 /* Scam email simulation */
 .scam-email {
@@ -523,6 +514,80 @@ a.outline {
 .scam-verdict { margin-top: 16px; padding: 16px 20px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 0.9rem; display: none; line-height: 1.65; }
 .scam-verdict.is-scam { background: #fcd8d8; border: 2px solid #e88a8a; color: #6a0f10; }
 .scam-verdict.is-safe { background: #d4f0e4; border: 2px solid #5abf80; color: #0a3d20; }
+
+
+
+
+
+
+
+
+.jargon-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.jargon-btn {
+  font-family: 'Courier Prime', monospace; font-size: 0.88rem; letter-spacing: 0.05em;
+  padding: 10px 20px; border: 2px solid #7080aa; border-radius: 4px;
+  background: #f4f6fd; color: #1a1d2e; cursor: pointer; min-height: 44px;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.jargon-btn:hover { background: #2255a4; border-color: #2255a4; color: #fff; }
+.jargon-btn.active { background: #2255a4; border-color: #2255a4; color: #fff; }
+
+    .jargon-search {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .jargon-search input {
+      flex: 1;
+      padding: 12px 14px;
+      border: 2px solid #7080aa;
+      border-radius: 4px;
+      font-family: 'Questrial', sans-serif;
+      font-size: 1rem;
+      background: #f4f6fd;
+      color: #1a1d2e;
+      outline: none;
+      min-height: 50px;
+      transition: border-color 0.15s;
+    }
+    .jargon-search input:focus { border-color: #2255a4; }
+ 
+    .jargon-def-box {
+      background: #ffffff;
+      border: 2px solid #b4bede;
+      border-left: 5px solid #2255a4;
+      border-radius: 6px;
+      padding: 24px 28px;
+      margin-top: 22px;
+      display: none;
+    }
+    .jargon-def-box h4 {
+      font-family: 'Courier Prime', monospace;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #2255a4;
+      margin-bottom: 10px;
+    }
+    .jargon-def-box p {
+      font-size: 1rem;
+      color: #1a1d2e;
+      line-height: 1.85;
+      margin: 0;
+    }
+    .jargon-def-box .jd-example {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.9rem;
+      color: #353a5a;
+      background: #dce8f8;
+      border: 1px solid #b4bede;
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin-top: 12px;
+      font-style: italic;
+      line-height: 1.7;
+      display: block;
+    }
+
 
 /* ── PATHWAY PAGES ───────────────────────────────── */
 .back-link {
