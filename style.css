@@ -516,7 +516,78 @@ a.outline {
 .scam-verdict.is-safe { background: #d4f0e4; border: 2px solid #5abf80; color: #0a3d20; }
 
 
-
+    .pw-wrap { max-width: 620px; margin: 0 auto; }
+    .pw-input-row { display: flex; gap: 10px; align-items: center; }
+    .pw-input-row input { flex: 1; }
+    .toggle-btn {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.78rem;
+      padding: 9px 14px;
+      border: 1.5px solid #aaa098;
+      border-radius: 4px;
+      background: #fffdf8;
+      cursor: pointer;
+      color: #2c2820;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+    .toggle-btn:hover { background: #e8e0d4; }
+    .strength-label {
+      font-family: 'Courier Prime', monospace;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-top: 14px;
+      min-height: 26px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .strength-label .crack-time {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: #6a6255;
+      margin-left: 4px;
+    }
+    .checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 16px;
+      list-style: none;
+      padding: 0;
+    }
+    .checklist li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: #bbb;
+      transition: color 0.2s;
+    }
+    .checklist li.pass { color: #059669; }
+    .checklist li .ck-icon { font-size: 0.85rem; width: 16px; text-align: center; flex-shrink: 0; }
+    .passphrase-box {
+      margin-top: 28px;
+      padding: 20px 22px;
+      background: #f0f7fb;
+      border: 1.5px solid #9bbfd4;
+      border-radius: 6px;
+    }
+    .passphrase-box h4 { font-family: 'Courier Prime', monospace; font-size: 0.9rem; font-weight: 700; color: #2c6e8a; margin-bottom: 6px; }
+    .passphrase-box p { font-size: 0.88rem; color: #3a3328; line-height: 1.6; margin-bottom: 12px; }
+    .passphrase-example {
+      font-family: 'Courier Prime', monospace;
+      font-size: 1rem;
+      background: #fff;
+      border: 1.5px solid #c8c0b0;
+      border-radius: 4px;
+      padding: 10px 14px;
+      color: #2c6e8a;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      display: block;
+      margin-bottom: 6px;
+      transition: background 0.15s;
 
 
 
