@@ -1,3 +1,9 @@
+/* ─────────────────────────────────────────────────
+   Technology Made Simple — stylesheet
+   Primary goal:  elderly-friendly readability
+   Secondary:     blue/purple palette, clean blog feel
+   ───────────────────────────────────────────────── */
+
 /* ── RESET ───────────────────────────────────────── */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -516,6 +522,7 @@ a.outline {
 .scam-verdict.is-safe { background: #d4f0e4; border: 2px solid #5abf80; color: #0a3d20; }
 
 
+
     .pw-wrap { max-width: 620px; margin: 0 auto; }
     .pw-input-row { display: flex; gap: 10px; align-items: center; }
     .pw-input-row input { flex: 1; }
@@ -588,6 +595,10 @@ a.outline {
       display: block;
       margin-bottom: 6px;
       transition: background 0.15s;
+    }
+    .passphrase-example:hover { background: #edf4f8; }
+    .passphrase-hint { font-family: 'Courier Prime', monospace; font-size: 0.72rem; color: #6a6255; }
+    @media (max-width: 480px) { .checklist { grid-template-columns: 1fr; } }
 
 
 
@@ -606,58 +617,54 @@ a.outline {
     .jargon-search {
       display: flex;
       gap: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
     .jargon-search input {
       flex: 1;
-      padding: 12px 14px;
-      border: 2px solid #7080aa;
+      padding: 9px 12px;
+      border: 1.5px solid #aaa098;
       border-radius: 4px;
       font-family: 'Questrial', sans-serif;
-      font-size: 1rem;
-      background: #f4f6fd;
-      color: #1a1d2e;
+      font-size: 0.95rem;
+      background: #fffdf8;
+      color: #111;
       outline: none;
-      min-height: 50px;
-      transition: border-color 0.15s;
     }
-    .jargon-search input:focus { border-color: #2255a4; }
- 
+    .jargon-search input:focus { border-color: #2c6e8a; }
     .jargon-def-box {
-      background: #ffffff;
-      border: 2px solid #b4bede;
-      border-left: 5px solid #2255a4;
+      background: #fffdf8;
+      border: 1.5px solid #2c6e8a;
+      border-left: 5px solid #2c6e8a;
       border-radius: 6px;
-      padding: 24px 28px;
-      margin-top: 22px;
+      padding: 20px 24px;
+      margin-top: 20px;
       display: none;
     }
     .jargon-def-box h4 {
       font-family: 'Courier Prime', monospace;
       font-size: 1.05rem;
       font-weight: 700;
-      color: #2255a4;
-      margin-bottom: 10px;
+      color: #2c6e8a;
+      margin-bottom: 8px;
     }
     .jargon-def-box p {
-      font-size: 1rem;
-      color: #1a1d2e;
-      line-height: 1.85;
+      font-size: 0.95rem;
+      color: #2c2820;
+      line-height: 1.7;
       margin: 0;
     }
     .jargon-def-box .jd-example {
       font-family: 'Courier Prime', monospace;
-      font-size: 0.9rem;
-      color: #353a5a;
-      background: #dce8f8;
-      border: 1px solid #b4bede;
-      border-radius: 4px;
-      padding: 10px 14px;
-      margin-top: 12px;
+      font-size: 0.82rem;
+      color: #4a4035;
+      background: #f2ede3;
+      border-radius: 3px;
+      padding: 8px 12px;
+      margin-top: 10px;
       font-style: italic;
-      line-height: 1.7;
-      display: block;
     }
+    .jargon-btn.active { background: #2c6e8a; border-color: #2c6e8a; color: #fff; }
+
 
 
 /* ── PATHWAY PAGES ───────────────────────────────── */
