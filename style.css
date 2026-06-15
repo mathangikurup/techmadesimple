@@ -611,53 +611,58 @@ a.outline {
     .jargon-search {
       display: flex;
       gap: 10px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
     .jargon-search input {
       flex: 1;
-      padding: 9px 12px;
-      border: 1.5px solid #aaa098;
+      padding: 12px 14px;
+      border: 2px solid #7080aa;
       border-radius: 4px;
       font-family: 'Questrial', sans-serif;
-      font-size: 0.95rem;
-      background: #fffdf8;
-      color: #111;
+      font-size: 1rem;
+      background: #f4f6fd;
+      color: #1a1d2e;
       outline: none;
+      min-height: 50px;
+      transition: border-color 0.15s;
     }
-    .jargon-search input:focus { border-color: #2c6e8a; }
+    .jargon-search input:focus { border-color: #2255a4; }
+ 
     .jargon-def-box {
-      background: #fffdf8;
-      border: 1.5px solid #2c6e8a;
-      border-left: 5px solid #2c6e8a;
+      background: #ffffff;
+      border: 2px solid #b4bede;
+      border-left: 5px solid #2255a4;
       border-radius: 6px;
-      padding: 20px 24px;
-      margin-top: 20px;
+      padding: 24px 28px;
+      margin-top: 22px;
       display: none;
     }
     .jargon-def-box h4 {
       font-family: 'Courier Prime', monospace;
       font-size: 1.05rem;
       font-weight: 700;
-      color: #2c6e8a;
-      margin-bottom: 8px;
+      color: #2255a4;
+      margin-bottom: 10px;
     }
     .jargon-def-box p {
-      font-size: 0.95rem;
-      color: #2c2820;
-      line-height: 1.7;
+      font-size: 1rem;
+      color: #1a1d2e;
+      line-height: 1.85;
       margin: 0;
     }
     .jargon-def-box .jd-example {
       font-family: 'Courier Prime', monospace;
-      font-size: 0.82rem;
-      color: #4a4035;
-      background: #f2ede3;
-      border-radius: 3px;
-      padding: 8px 12px;
-      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #353a5a;
+      background: #dce8f8;
+      border: 1px solid #b4bede;
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin-top: 12px;
       font-style: italic;
+      line-height: 1.7;
+      display: block;
     }
-    .jargon-btn.active { background: #2c6e8a; border-color: #2c6e8a; color: #fff; }
 
 
 
