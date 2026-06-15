@@ -86,9 +86,20 @@
       </div>
       <div class="lesson-arrow">→</div>
     </div>
-
+<div class="lesson-card" onclick="openLesson(2)">
+  <div class="lesson-number">03</div>
+  <div class="lesson-body">
+    <h3>Managing School Accounts & Passwords</h3>
+    <p>Learn how school accounts work, how to help your child log in, and how to avoid losing access to important assignments.</p>
+    <div class="lesson-meta">
+      <span>⏱ 8 min</span>
+      <span class="age-tag kids">Parents &amp; Guardians</span>
+    </div>
+  </div>
+  <div class="lesson-arrow">→</div>
+</div>
     <div class="lesson-card" onclick="openLesson(2)">
-      <div class="lesson-number">03</div>
+      <div class="lesson-number">04</div>
       <div class="lesson-body">
         <h3>Helping with Homework Using Online Tools</h3>
         <p>A guide to the tools schools commonly use for homework: Google Docs, Khan Academy, and Typing Club. Learn what each one does and how to help your child use them.</p>
@@ -99,9 +110,20 @@
       </div>
       <div class="lesson-arrow">→</div>
     </div>
-
+<div class="lesson-card" onclick="openLesson(4)">
+  <div class="lesson-number">05</div>
+  <div class="lesson-body">
+    <h3>Finding Assignments & Talking to Teachers</h3>
+    <p>Learn how to find missing work, understand school platforms, and communicate with teachers online.</p>
+    <div class="lesson-meta">
+      <span>⏱ 8 min</span>
+      <span class="age-tag kids">Parents &amp; Guardians</span>
+    </div>
+  </div>
+  <div class="lesson-arrow">→</div>
+</div>
     <div class="lesson-card" onclick="openLesson(3)">
-      <div class="lesson-number">04</div>
+      <div class="lesson-number">06</div>
       <div class="lesson-body">
         <h3>Screen Time, Balance &amp; Healthy Habits</h3>
         <p>How much screen time is too much? How do you tell if your child is doing schoolwork or playing games? Learn practical ways to set boundaries that actually work.</p>
@@ -114,7 +136,7 @@
     </div>
 
     <div class="lesson-card" onclick="openLesson(4)">
-      <div class="lesson-number">05</div>
+      <div class="lesson-number">07</div>
       <div class="lesson-body">
         <h3>Talking to Your Child About Online Safety</h3>
         <p>Age-appropriate ways to discuss online strangers, cyberbullying, and oversharing — without scaring your child or shutting down the conversation before it starts.</p>
@@ -164,14 +186,14 @@
 </div>
 
 <footer>
-  made with ❤️ by the <strong>media &amp; technology club</strong> &nbsp;·&nbsp; free for everyone to use
+  Technology Made Simple is student-led project. &nbsp;·&nbsp; free for everyone to use
 </footer>
 
 <script>
 const lessons = [
   {
     title: "Understanding Google Classroom",
-    eyebrow: "Lesson 1 of 5 · School Tech Path",
+    eyebrow: "Lesson 1 of 7 · School Tech Path",
     video: null,
     intro: "Google Classroom is the most widely used school platform in the US. It's where teachers post assignments, share resources, and communicate with students. As a parent, having access means you always know what's due.",
     steps: [
@@ -185,7 +207,7 @@ const lessons = [
   },
   {
     title: "Joining Video Lessons (Zoom & Google Meet)",
-    eyebrow: "Lesson 2 of 5 · School Tech Path",
+    eyebrow: "Lesson 2 of 7 · School Tech Path",
     video: null,
     intro: "Video calls have become a regular part of school — whether for virtual classes, tutoring, or parent-teacher meetings. With a quick setup and test beforehand, they're straightforward.",
     steps: [
@@ -197,9 +219,24 @@ const lessons = [
       "If your child is joining from a <strong>phone or tablet</strong>: download the Google Meet or Zoom app from the App Store or Google Play — they work just as well as the computer versions."
     ]
   },
+{
+  title: "Managing School Accounts & Passwords",
+  eyebrow: "Lesson 3 of 7 · School Tech Path",
+  video: null,
+  intro: "Most schools now use online accounts for assignments, grades, email, and communication. Helping your child manage these accounts is one of the most useful things a parent can learn.",
+  steps: [
+    "Your child may have several school accounts: a Google account, Microsoft account, learning platform accounts, and more. Keep a simple list of what each account is used for.",
+    "School accounts usually use the student's school email address. It often looks like <strong>name@schooldistrict.org</strong>. This is different from a personal Gmail account.",
+    "Help your child create a safe but memorable password. Avoid using their name, birthday, or simple words like 'password123'.",
+    "Teach your child how to use <strong>password recovery</strong>. Recovery phone numbers or backup emails help restore access if a password is forgotten.",
+    "If a school Chromebook or device is shared, always make sure your child signs out when finished. This protects their assignments and personal information.",
+    "Create a simple routine: check school accounts at the same time every day so assignments and messages don't get missed.",
+    "If your child cannot log in, do not keep guessing passwords. Too many attempts can lock the account. Use the school's password reset process or contact the teacher."
+  ]
+},
   {
     title: "Helping with Homework Using Online Tools",
-    eyebrow: "Lesson 3 of 5 · School Tech Path",
+    eyebrow: "Lesson 4 of 7 · School Tech Path",
     video: null,
     intro: "Schools commonly use a handful of free tools for homework. You don't need to know how to use them all yourself — understanding what each one is for is enough to support your child effectively.",
     steps: [
@@ -213,7 +250,7 @@ const lessons = [
   },
   {
     title: "Screen Time, Balance & Healthy Habits",
-    eyebrow: "Lesson 4 of 5 · School Tech Path",
+    eyebrow: "Lesson 6 of 7 · School Tech Path",
     video: null,
     intro: "Screens are unavoidable in school — and that's fine. The goal isn't less screen time overall, but healthier, more intentional screen time. A few simple habits make a real difference.",
     steps: [
@@ -227,7 +264,7 @@ const lessons = [
   },
   {
     title: "Talking to Your Child About Online Safety",
-    eyebrow: "Lesson 5 of 5 · School Tech Path",
+    eyebrow: "Lesson 7 of 7 · School Tech Path",
     video: null,
     intro: "Online safety conversations go better when they're ongoing and calm — not one big serious talk. Here's how to raise the important topics in ways that keep communication open.",
     steps: [
