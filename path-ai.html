@@ -169,6 +169,7 @@
       <h2 id="lessonTitle"></h2>
     </div>
     <div class="popup-body">
+      <iframe id="lessonVideo" frameborder="0" allowfullscreen></iframe>
       <div class="popup-text">
         <p id="lessonIntro"></p>
         <div id="lessonSteps" class="lesson-steps"></div>
@@ -188,68 +189,81 @@
 <script>
 const lessons = [
   {
-    title: "What Is AI, Really? A Plain-English Explainer",
+    title: "What Is AI, Really?",
     eyebrow: "Lesson 1 of 5 · AI Literacy Path",
+    video: "J4RqCSD--Dg",
     intro: "Artificial intelligence is not a robot, not a science fiction character, and not magic. It's software that has been trained on enormous amounts of data to recognize patterns and generate responses. Understanding what it actually is — and what it isn't — makes it far less intimidating.",
     steps: [
       "<strong>AI is software, not a brain.</strong> Modern AI (like ChatGPT or Gemini) is trained by analyzing billions of examples of text to predict what word should come next. It's a very sophisticated pattern-matcher — not a thinking, feeling mind.",
       "<strong>It doesn't 'know' things like a person does.</strong> AI generates plausible-sounding text based on what it's seen before. It can be confidently wrong, make up facts, or miss context that a human would catch instantly.",
-      "<strong>There are many types of AI.</strong> Text AI (ChatGPT), image AI (Midjourney, DALL·E), voice AI (Siri, Alexa), and recommendation AI (Netflix, Spotify) all work differently. What they share: they've all been trained on large amounts of data.",
-      "<strong>AI is not neutral.</strong> It reflects the data it was trained on, which can include biases, errors, and outdated information. Think of it as a very knowledgeable assistant that can still make mistakes.",
-      "<strong>The best approach:</strong> Treat AI like a helpful first draft or research starting point — not a final answer. Always verify important information from a trusted human source.",
-      "<strong>No AI can 'hack' you or 'watch' you</strong> through a chatbot conversation. Your main risk is what you voluntarily share — which Lesson 4 covers."
+      "<strong>There are many types of AI.</strong> Text AI (ChatGPT), image AI (DALL·E), voice AI (Siri), and recommendation AI (Netflix, Spotify) all work differently.",
+      "<strong>AI is not magic.</strong> It is a tool created by people. It can be useful, but it can also make mistakes.",
+      "<strong>The best approach:</strong> Use AI as an assistant or starting point — not as a replacement for your own judgment."
     ]
   },
+
   {
     title: "Using AI Assistants (ChatGPT, Gemini, Copilot)",
     eyebrow: "Lesson 2 of 5 · AI Literacy Path",
-    intro: "AI assistants can be genuinely useful — for drafting emails, explaining confusing documents, summarizing long articles, or answering questions at any hour. But they work best when you know how to ask clearly and when to double-check their answers.",
+    videos: [
+      "J4RqCSD--Dg",
+      "f6F8gV8fQpY"
+    ],
+    intro: "AI assistants can help with writing, explanations, planning, and everyday tasks. The key is learning how to ask good questions and how to check the answers.",
     steps: [
-      "<strong>The big three right now (2025):</strong> ChatGPT (chat.openai.com), Gemini (gemini.google.com), and Microsoft Copilot (copilot.microsoft.com). All are free to use at a basic level — no download needed, just a browser.",
-      "<strong>Be specific in what you ask.</strong> Instead of 'help me write an email,' try 'help me write a polite email to my landlord asking about a broken heater.' The more context you give, the better the response.",
-      "<strong>AI can make things up.</strong> This is called 'hallucination.' It may confidently state a wrong fact, cite a book that doesn't exist, or give outdated medical information. Always verify anything important — especially medical, legal, or financial details.",
-      "<strong>Never enter sensitive personal information</strong> into an AI chat. No Social Security numbers, passwords, full account numbers, or medical details. Treat it like a public conversation.",
-      "<strong>Useful things to try:</strong> 'Explain this letter from my insurance company in plain language,' 'Summarize this article in three bullet points,' or 'What questions should I ask before signing a lease?'",
-      "<strong>If the answer seems off, ask again differently.</strong> Say 'Are you sure about that?' or 'Can you give me a source for that?' AI can self-correct when prompted — though it can also double down on errors, so always check critical facts elsewhere."
+      "<strong>Ask clearly.</strong> Instead of saying 'help me write something', explain what you need, who it is for, and what tone you want.",
+      "<strong>Give context.</strong> AI works better when you include details. For example: 'Explain this letter in simple language for a beginner.'",
+      "<strong>AI can be wrong.</strong> It may confidently give incorrect information, so double-check anything important.",
+      "<strong>Never enter private information.</strong> Do not type passwords, banking details, or personal identification numbers into AI chats.",
+      "<strong>Useful tasks:</strong> summarising documents, brainstorming ideas, practising conversations, and explaining difficult topics."
     ]
   },
+
   {
     title: "Spotting AI-Generated Content & Deepfakes",
     eyebrow: "Lesson 3 of 5 · AI Literacy Path",
-    intro: "In 2025, AI can generate realistic photos of people who don't exist, videos of real people saying things they never said, and entire articles written without a human author. This doesn't mean everything online is fake — but it means you need a few new habits to verify what you see.",
+    videos: [
+      "J4RqCSD--Dg",
+      "9bZkp7q19f0"
+    ],
+    intro: "AI can now create realistic images, videos, and voices. Learning a few warning signs helps you avoid being fooled by fake content online.",
     steps: [
-      "<strong>Look at the hands and background details.</strong> AI-generated images often struggle with hands (too many fingers, strange joints), teeth, text within the image, and backgrounds that seem subtly 'off.' Zoom in on these areas.",
-      "<strong>Reverse image search suspicious photos.</strong> On Google, click the camera icon in the search bar and upload or paste a photo URL. If the same face appears in dozens of unrelated contexts, it may be AI-generated.",
-      "<strong>Watch for 'deepfakes' in video.</strong> Warning signs include unnatural blinking, lighting that doesn't match the face, slightly blurry edges around the head, or lip movements that don't quite match the audio.",
-      "<strong>AI-written articles often lack specifics.</strong> Vague claims, no named sources, no date, no author, and smooth but somewhat generic language are all signals. Look for a named journalist and a credible publication.",
-      "<strong>Check the source before sharing.</strong> Before sharing anything surprising or shocking, spend 30 seconds checking: Who published this? When? Can you find the same story on another trusted news outlet? A scam or hoax rarely appears in multiple credible places.",
-      "<strong>Free verification tools:</strong> Snopes.com and FactCheck.org fact-check viral claims. Google's reverse image search checks photos. These are free and take seconds to use."
+      "<strong>Look for strange details.</strong> AI images may have unusual hands, unrealistic text, strange backgrounds, or small details that don't make sense.",
+      "<strong>Be careful with emotional content.</strong> Fake videos often try to make people angry, scared, or excited so they share without checking.",
+      "<strong>Check the source.</strong> Ask: Who posted this? Is it from a trusted organisation? Can another reliable source confirm it?",
+      "<strong>Voice scams are increasing.</strong> A scammer can use AI to imitate someone's voice and pretend to be a family member or company.",
+      "<strong>Pause before sharing.</strong> Taking 30 seconds to verify something can prevent spreading false information."
     ]
   },
+
   {
     title: "Your Privacy and AI Tools",
     eyebrow: "Lesson 4 of 5 · AI Literacy Path",
-    intro: "When you use an AI chatbot, your conversation is typically stored by the company and may be used to train future versions of their AI. This isn't necessarily harmful — but it means you should think carefully about what you share.",
+    video: "X7gR8Y0mY2A",
+    intro: "AI tools are powerful, but they work by processing information. Understanding privacy helps you use them safely.",
     steps: [
-      "<strong>Your conversations are not private by default.</strong> Most AI services store your chat history on their servers. ChatGPT, Gemini, and others all have privacy policies — and while they generally don't sell your data directly, they do use it to improve their models.",
-      "<strong>Never share passwords, SSNs, or full financial details</strong> in any AI chat. Even if you trust the company, that data is now stored and could theoretically be accessed in a data breach.",
-      "<strong>Turn off chat history if you want more privacy.</strong> In ChatGPT: click your name → Settings → Data Controls → toggle off 'Improve the model for everyone.' In Gemini: visit myactivity.google.com to review and delete AI activity.",
-      "<strong>Be thoughtful about health details.</strong> Asking 'what could cause chest pain?' is fine. Entering your full name + medical history + address is not. Share only what's necessary.",
-      "<strong>Watch for AI-powered scams.</strong> Scammers now use AI to clone voices (they can fake a relative's voice from a 15-second clip) and to write highly convincing phishing emails. If someone calls you in a panic asking for money, hang up and call that person directly on a number you know.",
-      "<strong>Children's privacy:</strong> Do not let young children use AI chatbots without supervision. Most major AI services have age minimums (usually 13+). AI can provide inaccurate or inappropriate content without the same safeguards as children's platforms."
+      "<strong>Don't share secrets.</strong> Avoid entering passwords, financial information, private documents, or sensitive personal details.",
+      "<strong>Remember AI chats may be stored.</strong> Treat AI conversations like information you are choosing to give to a company.",
+      "<strong>Use privacy settings.</strong> Review account settings and understand what information the service collects.",
+      "<strong>Be careful with photos.</strong> Avoid uploading private images of yourself, family members, or documents unless you understand how they are used.",
+      "<strong>AI scams exist.</strong> AI can make fake messages and fake voices more convincing, so use the same caution you learned in Online Safety."
     ]
   },
+
   {
     title: "AI Is Already in Your Daily Life",
     eyebrow: "Lesson 5 of 5 · AI Literacy Path",
-    intro: "Chatbots and image generators are the most visible AI tools right now — but AI has been quietly running in the background of your everyday life for years. Understanding where it is helps you make more informed choices about the technology you use.",
+    videos: [
+      "J4RqCSD--Dg",
+      "tgbNymZ7vqY"
+    ],
+    intro: "AI is already part of many everyday tools — phones, email, search engines, and streaming services. Recognising it helps you understand the technology around you.",
     steps: [
-      "<strong>Your phone's face unlock</strong> uses AI to recognize your face from millions of possible angles. Your phone's autocomplete (predicting the next word as you type) is a small AI language model.",
-      "<strong>Email spam filters</strong> are AI — they've learned what spam looks like by analyzing billions of emails. When you mark something as spam, you're training that system.",
-      "<strong>Streaming recommendations</strong> on Netflix, Spotify, and YouTube are AI. They track what you watch, how long you watch, what you skip, and when you stop — and use that to predict what to show you next.",
-      "<strong>Search engines use AI</strong> to rank results, understand your intent, and now generate direct answers at the top of the page (Google's 'AI Overview'). This is convenient but also means the AI is selecting what information you see.",
-      "<strong>AI customer service bots</strong> are increasingly common — those chat widgets on company websites are often AI, not humans. They're getting harder to distinguish from real people.",
-      "<strong>The key habit:</strong> Ask yourself who benefits when an AI system makes a recommendation. A streaming service recommends more content to keep you watching longer. A social media platform shows content that generates emotional reactions to keep you scrolling. Understanding the incentive helps you decide when to follow the AI's lead — and when to step back."
+      "<strong>Phones use AI.</strong> Face unlock, voice assistants, and predictive text all use AI systems.",
+      "<strong>Email uses AI.</strong> Spam filters learn patterns to identify unwanted messages.",
+      "<strong>Recommendations use AI.</strong> Streaming services suggest videos or music based on your activity.",
+      "<strong>Search engines use AI.</strong> They try to understand what you mean, not just match exact words.",
+      "<strong>The goal is awareness.</strong> AI can be useful, but humans still need to make the final decisions."
     ]
   }
 ];
@@ -261,7 +275,48 @@ function openLesson(index) {
   const l = lessons[index];
   document.getElementById('lessonEyebrow').innerText = l.eyebrow;
   document.getElementById('lessonTitle').innerText = l.title;
-  document.getElementById('lessonIntro').innerText = l.intro;
+const iframe = document.getElementById('lessonVideo');
+
+if (l.videos) {
+  iframe.src = 'https://www.youtube.com/embed/' + l.videos[0];
+  iframe.style.display = 'block';
+
+  let secondVideo = document.getElementById("secondVideo");
+
+  if (!secondVideo) {
+    secondVideo = document.createElement("iframe");
+    secondVideo.id = "secondVideo";
+    secondVideo.frameBorder = "0";
+    secondVideo.allowFullscreen = true;
+    secondVideo.style.width = "100%";
+    secondVideo.style.height = "350px";
+    iframe.parentNode.appendChild(secondVideo);
+  }
+
+  secondVideo.src = 'https://www.youtube.com/embed/' + l.videos[1];
+  secondVideo.style.display = 'block';
+
+} else if (l.video) {
+
+  iframe.src = 'https://www.youtube.com/embed/' + l.video;
+  iframe.style.display = 'block';
+
+  let secondVideo = document.getElementById("secondVideo");
+  if (secondVideo) {
+    secondVideo.src = "";
+    secondVideo.style.display = "none";
+  }
+
+} else {
+
+  iframe.src = '';
+  iframe.style.display = 'none';
+
+  let secondVideo = document.getElementById("secondVideo");
+  if (secondVideo) {
+    secondVideo.style.display = "none";
+  }
+}  document.getElementById('lessonIntro').innerText = l.intro;
   document.getElementById('lessonSteps').innerHTML = l.steps.map((s, i) =>
     `<div class="lesson-step"><span class="step-num">${i + 1}</span><p>${s}</p></div>`
   ).join('');
@@ -270,10 +325,9 @@ function openLesson(index) {
   if (index < lessons.length - 1) {
     nextBtn.style.display = 'inline-block';
     nextBtn.innerText = 'Next Lesson →';
-    nextBtn.onclick = nextLesson;
   } else {
     nextBtn.style.display = 'inline-block';
-    nextBtn.innerText = 'Take the Safety Quiz →';
+    nextBtn.innerText = 'Go to Tools →';
     nextBtn.onclick = () => { window.location.href = 'tools.html'; };
   }
 
@@ -283,9 +337,15 @@ function openLesson(index) {
 
 function closeLesson() {
   document.getElementById('lessonPopup').style.display = 'none';
+  document.getElementById('lessonVideo').src = '';
+
+  let secondVideo = document.getElementById("secondVideo");
+  if (secondVideo) {
+    secondVideo.src = "";
+  }
+
   document.body.style.overflow = '';
 }
-
 function nextLesson() {
   if (currentLesson < lessons.length - 1) openLesson(currentLesson + 1);
 }
@@ -296,3 +356,4 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLesson(
 
 </body>
 </html>
+
