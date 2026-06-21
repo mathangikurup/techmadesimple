@@ -75,19 +75,54 @@
       <div class="lesson-arrow">→</div>
     </div>
 
-    <div class="lesson-card" onclick="openLesson(1)">
-      <div class="lesson-number">02</div>
-      <div class="lesson-body">
-        <h3>Writing a Simple Resume</h3> <span class="ai-badge">New 2026 - Resume Templates!</span>
-        <p>A resume doesn't need to be complicated. Learn what to include, how to format it clearly, and how to save and send it as a PDF — the format most employers prefer.</p>
-        <div class="lesson-meta">
-          <span>⏱ 10 min</span>
-          <span class="age-tag teens">Teens &amp; Adults</span>
-        </div>
+<div class="lesson-card" onclick="openLesson(1)">
+  <div class="lesson-number">02</div>
+
+  <div class="lesson-body">
+    <h3>Writing a Simple Resume</h3>
+
+    <span class="ai-badge">New 2026 - Resume Templates!</span>
+
+    <div class="doc-preview"
+      onclick="event.stopPropagation(); window.open('https://docs.google.com/document/d/10Vb5p9OJLhVUg9vB4cjugHnrNNzJv-3z3_GUhw1Ek7Y/preview', '_blank')">
+
+      <div class="doc-preview-title">
+        📄 Basic Resume Template
       </div>
-      <div class="lesson-arrow">→</div>
+
+      <div class="doc-preview-snippet">
+        A simple professional resume layout you can copy and edit.
+      </div>
+
     </div>
 
+    <div class="doc-preview"
+      onclick="event.stopPropagation(); window.open('https://docs.google.com/document/d/11EFxJZq5d-WIXe1vYFAjgTH_90UcbttNv4PTCwqwuUg/preview', '_blank')">
+
+      <div class="doc-preview-title">
+        📄 Student Resume Template
+      </div>
+
+      <div class="doc-preview-snippet">
+        A resume tailored for job-seeking students.
+      </div>
+
+    </div>
+
+
+    <p>
+      A resume doesn't need to be complicated. Learn what to include, how to format it clearly, and how to save and send it as a PDF — the format most employers prefer.
+    </p>
+
+    <div class="lesson-meta">
+      <span>⏱ 10 min</span>
+      <span class="age-tag teens">Teens &amp; Adults</span>
+    </div>
+
+  </div>
+
+  <div class="lesson-arrow">→</div>
+</div>
     <div class="lesson-card" onclick="openLesson(2)">
       <div class="lesson-number">03</div>
       <div class="lesson-body">
@@ -192,11 +227,14 @@
     </div>
     <div class="popup-body">
       <iframe id="lessonVideo" frameborder="0" allowfullscreen></iframe>
-      <div class="popup-text">
-        <p id="lessonIntro"></p>
-        <div id="lessonSteps" class="lesson-steps"></div>
-      </div>
-    </div>
+<div class="popup-text">
+  <p id="lessonIntro"></p>
+
+
+  <div id="lessonSteps" class="lesson-steps"></div>
+  <div id="lessonDocs"></div>
+
+</div>    </div>
     <div class="popup-footer">
       <button class="btn-outline" onclick="closeLesson()">Close</button>
       <button class="btn-primary" id="lessonNext" onclick="nextLesson()">Next Lesson →</button>
@@ -229,7 +267,7 @@ const lessons = [
     title: "Writing a Simple Resume",
     eyebrow: "Lesson 2 of 8 · Job Search Path",
     video: "6HPs3i2Nth0",
-    intro: "A resume is a short document that tells an employer who you are and why you'd be a good fit. It doesn't need to be long or fancy — one page, clearly laid out, is ideal. Keep scrolling to find professional resume templates!",
+    intro: "A resume is a short document that tells an employer who you are and why you'd be a good fit. It doesn't need to be long or fancy — one page, clearly laid out, is ideal. Scroll to the end to find professional resume templates!",
     steps: [
       "<strong>Start with your name and contact details</strong> at the top: full name, phone number, email address, and city (you don't need your full street address).",
       "<strong>Work experience</strong>: list your jobs starting with the most recent. For each, include: job title, employer name, dates worked, and 2–3 bullet points about what you did.",
@@ -239,7 +277,18 @@ const lessons = [
       "Use <strong>Google Docs</strong> (free at docs.google.com) or Microsoft Word to write your resume. When it's ready: File → Download → PDF Document. Employers prefer PDFs because they look the same on every computer.",
       "Many employers use Applicant Tracking Systems (ATS) to scan resumes automatically. Use words and skills that appear in the job description whenever they accurately describe your experience.",
       "Avoid excessive graphics, tables, columns, or unusual fonts. Simple resumes are often easier for hiring software to read."      
-    ]
+    ],
+  docs: [
+    {
+      title: "Resume Template #1",
+      url: "https://docs.google.com/document/d/10Vb5p9OJLhVUg9vB4cjugHnrNNzJv-3z3_GUhw1Ek7Y/preview"
+    },
+    {
+      title: "Resume Template #2",
+      url: "https://docs.google.com/document/d/11EFxJZq5d-WIXe1vYFAjgTH_90UcbttNv4PTCwqwuUg/preview"
+    }
+  ]
+
   },
   {
     title: "Where to Find Jobs Online",
@@ -338,28 +387,68 @@ let currentLesson = 0;
 function openLesson(index) {
   currentLesson = index;
   const l = lessons[index];
+
   document.getElementById('lessonEyebrow').innerText = l.eyebrow;
   document.getElementById('lessonTitle').innerText = l.title;
-  document.getElementById('lessonVideo').src = l.video ? 'https://www.youtube.com/embed/' + l.video : '';
+
+  document.getElementById('lessonVideo').src =
+    l.video ? 'https://www.youtube.com/embed/' + l.video : '';
+
   document.getElementById('lessonIntro').innerText = l.intro;
-  document.getElementById('lessonSteps').innerHTML = l.steps.map((s, i) =>
-    `<div class="lesson-step"><span class="step-num">${i + 1}</span><p>${s}</p></div>`
-  ).join('');
+
+  document.getElementById('lessonSteps').innerHTML =
+    l.steps.map((s, i) =>
+      `<div class="lesson-step">
+        <span class="step-num">${i + 1}</span>
+        <p>${s}</p>
+      </div>`
+    ).join('');
+
+  const docs = document.getElementById('lessonDocs');
+
+  docs.innerHTML = "";
+
+  if (l.docs) {
+    docs.innerHTML = l.docs.map(doc => `
+      <div class="lesson-doc"
+           onclick="window.open('${doc.url}', '_blank')">
+
+        <h4>${doc.title}</h4>
+
+        <iframe
+          src="${doc.url}"
+          loading="lazy"
+          onclick="event.stopPropagation();">
+        </iframe>
+
+        <div class="doc-open-text">
+          Open template →
+        </div>
+
+      </div>
+    `).join('');
+  }
+
+
 
   const nextBtn = document.getElementById('lessonNext');
+
   nextBtn.onclick = nextLesson;
+
   if (index < lessons.length - 1) {
     nextBtn.style.display = 'inline-block';
     nextBtn.innerText = 'Next Lesson →';
   } else {
     nextBtn.innerText = 'Back to All Paths →';
-    nextBtn.onclick = () => { window.location.href = 'index.html#pathways'; };
+    nextBtn.onclick = () => {
+      window.location.href = 'index.html#pathways';
+    };
   }
+
 
   document.getElementById('lessonPopup').style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }
-
 function closeLesson() {
   document.getElementById('lessonPopup').style.display = 'none';
   document.getElementById('lessonVideo').src = '';
