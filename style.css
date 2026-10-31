@@ -371,7 +371,30 @@ section a:hover,
 .news-controls #see-more {
   margin: 0 auto;
 }
+#see-more {
+  padding: 12px 25px;
+  border: 2px solid #414042;
+  background: #fff6a6;
+  color: #414042;
+  font-family: 'Courier Prime', monospace;
+  font-weight: bold;
+  cursor: pointer;
+}
 
+#see-more:hover {
+  background: #e4fcae;
+}
+
+.news-footer {
+  text-align: center;
+  margin: 35px 0;
+}
+
+.news-footer a {
+  color: #414042;
+  text-decoration: underline;
+  font-family: 'Courier Prime', monospace;
+}
 @media (max-width: 650px) {
   .news-card {
     align-items: flex-start;
