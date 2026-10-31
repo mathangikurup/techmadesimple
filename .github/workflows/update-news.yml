@@ -1,4 +1,3 @@
-
 name: Update Technology News
 
 on:
@@ -17,8 +16,18 @@ jobs:
       - name: Get repository
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
       - name: Update news feed
-        run: python scripts/update_news.py
+        run: |
+          if [ -f scripts/update_news.py ]; then
+            python scripts/update_news.py
+          else
+            python update_news.py
+          fi
 
       - name: Save updated articles
         run: |
