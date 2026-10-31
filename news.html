@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Technology Made Simple</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Bridging Digital Awareness</div>
+  <h1>Technology Made Simple</h1>
+  <div class="subline">friendly guides for every age — learn at your own pace.</div>
+</header>
+
+<nav>
+  <div class="nav-items">
+    <a href="index.html#about">About</a>
+    <a href="index.html#pathways">Get Started</a>
+    <div class="dropdown">
+      <a href="pathways.html">Pathways ▾</a>
+      <div class="dropdown-menu">
+        <a href="path-beginner.html">Beginner</a>
+        <a href="path-safety.html">Safety</a>
+        <a href="path-jobs.html">Jobs</a>
+        <a href="path-school.html">School</a>
+        <a href="path-ai.html">AI Literacy ✦</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a href="tools.html">Interactive Tools ▾</a>
+      <div class="dropdown-menu">
+        <a href="tool-computer-simulation.html"> Computer Simulation </a>
+        <a href="tool-password.html">Password Checker</a>
+        <a href="tool-jargon.html">Jargon Decoder</a>
+        <a href="tool-ai-game.html">Ai or Human?</a>
+        <a href="tool-quizzes.html">Knowledge Quizzes</a>
+        <a href="tool-scam.html">Scam Email Simulator</a>
+      </div>
+    </div>
+    <a href="digital-life.html">Digital Life</a>
+    <a href="get-involved.html">Get Involved</a>
+  </div>
+</nav>
+
+<section id="news">
+  <h2><b>News</b></h2>
+  <p>Keep up to date with the latest technology news!</p>
+</section>
+
+<section>
+  <div class="lesson-list" id="news-list">
+    <p>Loading the latest technology news...</p>
+  </div>
+
+  <div class="news-controls">
+    <button id="see-more" hidden>See More ↓</button>
+  </div>
+
+  <div class="news-footer">
+    <a href="https://www.technologyreview.com/"
+       target="_blank" rel="noopener noreferrer">
+      Explore more technology news at MIT Technology Review →
+    </a>
+  </div>
+</section>
+
+  <footer>
+  Technology Made Simple is student-led project.  ·  free for everyone to use
+</footer>
+  <script>
+  
+const newsList = document.getElementById("news-list");
+const seeMore = document.getElementById("see-more");
+
+let articles = [];
+let visibleArticles = 5;
+
+function displayArticles() {
+  const nextArticles = articles.slice(0, visibleArticles);
+
+  newsList.innerHTML = nextArticles.map(article => {
+    const date = new Date(article.date).toLocaleDateString(
+      "en-US",
+      {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+        timeZone: "UTC"
+      }
+    ).toUpperCase();
+
+    return `
+      <a class="lesson-card"
+         href="${article.link}"
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <div class="date-step">${date}</div>
+
+        <div class="lesson-body">
+          <h3>${escapeHTML(article.title)}</h3>
+          <p>${escapeHTML(article.description)}</p>
+        </div>
+
+        <div class="lesson-arrow">→</div>
+
+      </a>
+    `;
+  }).join("");
+
+  seeMore.hidden = visibleArticles >= articles.length;
+}
+
+function escapeHTML(text) {
+  return String(text || "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  })[char]);
+}
+
+fetch("news.json")
+  .then(response => {
+    if (!response.ok) throw new Error("Could not load news.");
+    return response.json();
+  })
+  .then(data => {
+    articles = data.sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
+
+    displayArticles();
+  })
+  .catch(error => {
+    newsList.innerHTML =
+      "<p>News is temporarily unavailable. Please visit " +
+      '<a href="https://www.technologyreview.com/">MIT Technology Review</a>.</p>';
+  });
+
+seeMore.addEventListener("click", () => {
+  visibleArticles += 5;
+  displayArticles();
+});
+
+  </script>
+</body>
+</html>
