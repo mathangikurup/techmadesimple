@@ -1,9 +1,25 @@
 [
   {
+    "title": "65 Years of Human Spaceflight at NASA Johnson",
+    "link": "https://www.nasa.gov/centers-and-facilities/johnson/65-years-of-human-spaceflight-at-nasa-johnson/",
+    "date": "2026-11-22T19:13:25Z",
+    "description": "For 65 years, NASA’s Johnson Space Center in Houston has helped shape human spaceflight, from the Gemini missions that demonstrated rendezvous and docking techniques needed for Apollo to the research conducted aboard the International Space Station, which has supported a continuous human presence for more than 26 years. Today, Johnson teams are preparing crews and […]",
+    "source": "NASA",
+    "category": "Space"
+  },
+  {
+    "title": "APOD: 2026 November 22 – Swirls and Colors on Jupiter from Juno",
+    "link": "https://science.nasa.gov/image-article/apod-2026-november-22-swirls-and-colors-on-jupiter-from-juno/",
+    "date": "2026-11-22T05:05:00Z",
+    "description": "APODScienceAPODAPOD: 2026 November 22 –…Today’s APODArchiveSubmissionsIndexSearchCalendarRSSEducationAboutDiscuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. Swirls and Colors on Jupiter from Juno Explanation: What creates the colors in Jupiter’s clouds? No one […]",
+    "source": "NASA",
+    "category": "Space"
+  },
+  {
     "title": "APOD: 2026 November 21 – Voyager’s Neptune",
     "link": "https://science.nasa.gov/image-article/apod-2026-november-21-voyagers-neptune/",
     "date": "2026-11-21T05:05:00Z",
-    "description": "APOD Science APOD APOD: 2026 November 21 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. Voyager’s Neptune Explanation: […]",
+    "description": "APODScienceAPODAPOD: 2026 November 21 –…Today’s APODArchiveSubmissionsIndexSearchCalendarRSSEducationAboutDiscuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. Voyager’s Neptune Explanation: Cruising through the outer solar system, the Voyager 2 spacecraft made its closest approach […]",
     "source": "NASA",
     "category": "Space"
   },
@@ -222,21 +238,5 @@
     "description": "This article is crossposted from IEEE Spectrum ’s careers newsletter. Sign up now to get insider tips, expert advice, and practical strategies, written i n partnership with tech career development company Parsity and delivered to your inbox for free! In one year, the number of developers working for themselves has more than doubled. Stack Overflow’s annual survey of more than 30,000 developers showed that freelancers and sole proprietors went from about four percent of respondents to ten percent. You can read this as a polite way of saying, “ I got laid off and I’m figuring it out.” But I don’t think the number can be ignored. Whatever the case, it leads to the question I keep hearing from engineers right now: What can I do to stay employable? One tried and true answer is to build a personal brand. But what does that actually mean? Over the last six years, I grew my LinkedIn audience to 40,000 followers and YouTube channel to 10,000. I don’t think you should aim to be famous (unless you’re into that sort of thing) but I do think it’s worth exploring how to be discoverable online in 2027 if you want an advantage in the open market. A personal brand is a discovery mechanism Strip away the follower counts and the AI-generated thought leadership, and a personal brand comes down to a simple question: Does the internet know who you are? When a hiring manager goes looking for someone who has your skills, do you show up? You can think of this as search engine optimization for your employability. Recruiters have mostly consolidated around a single platform to find people: LinkedIn. Those 40,000 followers and millions of impressions came with barely a viral post to my name. Nobody is begging me to do sponsorships. But I rarely have trouble finding work, and far more opportunities come to me than I go looking for. That has much less to do with fame than with being easy to find. You don’t need 10,000 followers. You need a trail of breadcrumbs. Don’t write AI slop LinkedIn is notorious for being overrun with AI-generated posts. It’s become a running joke. That’s good news for you, because the bar to stand out is “sound like a human being.” Write about what you actually achieved: a hairy bug you squashed, how your team handles deployments, why you picked some obscure library, the migration that went sideways at 2 a.m. Specifics are hard to fake and easy to trust. (But be careful not to post sensitive information.) And post a picture of yourself once in a while. People connect with faces a lot faster than with walls of text. Hot takes, with caution Posts with an opinion tend to outperform tutorials, but you don’t have to dunk on anyone to have one. For instance, if you work on a tech stack people love to mock (VB, .NET, some ancient Java monolith held together with prayer), try something like “What people get wrong about .NET.” You’ll attract a few trolls in the comments—free engagement, honestly—plus people who want an actual conversation. These comments can turn into actual connections and even… friends. A routine you can follow Posting twice a week is not a big ask. Pick a simple, repeatable format so you’re never staring at an empty text box: what you worked on, what broke, and what you learned. Even a post that gets 10 views leaves one more breadcrumb about who you are and what you know. Over time, the people who comment become your network. And because so few engineers post about their work on LinkedIn, you can become a big fish in a small pond surprisingly fast. Write for the people a few steps behind you The best audience is engineers one or two steps behind where you are now. Answer the questions you had a year ago. It helps them, it sharpens your own thinking, and every so often it turns into mentorship in both directions. It also tells a future employer more about how you think than any résumé bullet ever could. The engineers who grab the most opportunities are the ones employers can find. You don’t need to become an influencer to be one of them. You just need to leave enough breadcrumbs that the right person can follow them back to you. —Brian IEEE Xplore Digital Library Adds AI Assistant To help researchers search through the millions of peer-review publications in the IEEE Xplore Digital Library, IEEE has released a custom AI suite optimized for STEM literature. The suit allows users to search with natural-language queries and provides overviews with reference links. Read more here . Systems Thinking Is Vital in the Age of AI AI has made it easier to access information in different domains, but specialist knowledge and human judgement still serve an essential role. Today, an engineer’s core value comes from knowing how to ask the right questions—not from knowing everything. Read more here . The Robot I Didn’t Expect to Build In this feature article, Agility Robotics’ cofounder Jonathan Hurst tells the inside story of the company’s latest humanoid robot and offers a valuable lesson about learning to pivot. “To deliver a useful commercial product, Agility has taken a path that is very different from what I first imagined,” Hurst writes. Read more here .",
     "source": "IEEE Spectrum",
     "category": "Artificial Intelligence"
-  },
-  {
-    "title": "Thank You for Doing NASA Science!",
-    "link": "https://science.nasa.gov/get-involved/citizen-science/thank-you-for-doing-nasa-science/",
-    "date": "2026-11-18T17:32:52Z",
-    "description": "It’s Thanksgiving time, and we’re giving thanks to you for doing NASA Science with us! You and NASA’s other volunteers have enabled an incredible banquet of discoveries—by taking data, analyzing data, writing code, writing papers, and even inventing your own science projects. Whether you’re an expert participant or someone who’s just started your science journey, […]",
-    "source": "NASA",
-    "category": "Space"
-  },
-  {
-    "title": "NASA Data Clinches First-of-Its-Kind Stellar Merger",
-    "link": "https://science.nasa.gov/missions/webb/nasa-data-clinches-first-of-its-kind-stellar-merger/",
-    "date": "2026-11-18T16:00:00Z",
-    "description": "Researchers recently identified a first of its kind: A star slightly less massive than the Sun spiraled into and merged with a puffy supergiant star at the outskirts of our neighboring Andromeda galaxy. They nicknamed the newly single, potentially “rejuvenated” star Bao. Their NASA-funded discovery was then bolstered by quick-turn observations from NASA’s James Webb […]",
-    "source": "NASA",
-    "category": "Space"
   }
 ]
